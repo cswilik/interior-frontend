@@ -2,7 +2,7 @@ import  React, { useEffect } from 'react'
 import ParkItem from "./ParkItem"
 import { useSelector, useDispatch} from 'react-redux'
 import {addParks} from '../Redux/park'
-import { Grid, Image } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 function ParksContainer() {
     const dispatch = useDispatch()

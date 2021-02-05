@@ -4,7 +4,8 @@ const userSlice = createSlice({
     name: "user",
     initialState: {
         users: [],
-        currentUser: null
+        currentUser: null,
+        userProfile: null
     },
     reducers: {
         addUsers: (state, action) => {
@@ -19,6 +20,9 @@ const userSlice = createSlice({
               // user.name = action.payload.name
             // user.bio = action.payload.bio
             // user.fav_park = action.payload.fav_park
+        },
+        showUserProfile: (state, action) => {
+            state.userProfile = action.payload
         }
         
     }
@@ -26,7 +30,7 @@ const userSlice = createSlice({
 
 
 // actions
-export const {addUsers, setCurrentUser, updatedUsers} = userSlice.actions
+export const {addUsers, setCurrentUser, updatedUsers, showUserProfile} = userSlice.actions
 
 // reducer
 export default userSlice.reducer;

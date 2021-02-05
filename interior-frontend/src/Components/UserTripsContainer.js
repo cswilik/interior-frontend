@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux'
 import UserTripItem from './UserTripItem'
 
 
+
 function UserTripsContainer() {
     const currentUser = useSelector(state => state.users.currentUser)
     const mytrips =currentUser.trips

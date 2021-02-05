@@ -10,10 +10,13 @@ function Dashboard() {
     return (
         <div>
             <h1>Welcome, {currentUser.name}</h1> 
-            <Link to='./editprofile'>Edit Profile</Link> | {/* <Link to='/:id'>Public Profile</Link> */}
+            <Link to='./editprofile'>Edit Profile</Link> | <Link to={`./users/${currentUser.id}`}>Public Profile</Link>
             <UserTripsContainer/>
        </div>
     )
 }
 
 export default Dashboard;
+
+//  <Link to={`/projects/${id}`}>See Details</Link> 
+

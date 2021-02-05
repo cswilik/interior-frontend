@@ -1,5 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import { Image, Container, Divider } from 'semantic-ui-react'
 
 function UserTripItem({trip}) {
     const currentUser = useSelector(state => state.users.currentUser)
@@ -13,10 +14,13 @@ function UserTripItem({trip}) {
 
     return (
         <div>
-            <h3>{park.name}</h3>
-            <img src={trip.img_url} alt="National Park" />
+            <Container textAlign='left'>
+            <Image src={trip.img_url} size='tiny' circular verticalAlign='bottom' />
+            <span>{park.name}</span>
             <p>{trip.review}</p>
             <span>Likes: {trip.likes}</span>
+            <Divider/>
+            </Container>
 
         </div>
     )

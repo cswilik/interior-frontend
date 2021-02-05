@@ -8,6 +8,7 @@ import NavBar from "./Navbar"
 import Dashboard from "./Dashboard"
 import HomePage from './HomePage'
 import ProfileForm from './ProfileForm'
+import UserProfile from './UserProfie'
 
 function App() {
   const dispatch = useDispatch()
@@ -36,6 +37,9 @@ function App() {
       </Route>
       <Route exact path="/editprofile">
           <ProfileForm/>
+      </Route>
+      <Route exact path="/users/:id">
+          <UserProfile/>
       </Route>
 
       </Switch>

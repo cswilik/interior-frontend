@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
-.nav-link {
-  color: red;
+
+
+.trip-btn {
+  float: right;
+  font-size: small;
+  display: inline-block
 }

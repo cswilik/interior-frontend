@@ -16,10 +16,10 @@ const userSlice = createSlice({
         },
         updatedUsers: (state, action) => {
             const user = state.users.find((user) => user.id === action.payload.id);
-            // console.log(current(user))   
-              // user.name = action.payload.name
-            // user.bio = action.payload.bio
-            // user.fav_park = action.payload.fav_park
+            user.name = action.payload.name
+            user.bio = action.payload.bio
+            user.fav_park = action.payload.fav_park
+            state.currentUser = user
         },
         showUserProfile: (state, action) => {
             state.userProfile = action.payload

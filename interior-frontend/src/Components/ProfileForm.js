@@ -1,10 +1,13 @@
 import React, { useState} from 'react'
+import { useHistory } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import {useSelector, useDispatch} from 'react-redux'
 import {updatedUsers} from '../Redux/user'
 
+
 function ProfileForm() {
     const currentUser = useSelector(state => state.users.currentUser)
+    let history = useHistory()
     const dispatch = useDispatch()
     const [name, setUserName] = useState("")
     const [bio, setUserBio] = useState("")
@@ -29,7 +32,8 @@ function ProfileForm() {
         })
         .then(r => r.json())
         .then(updatedUser => {
-            dispatch(updatedUsers(updatedUser))})
+            dispatch(updatedUsers(updatedUser))
+            history.push('/dashboard')})
 
     }
 

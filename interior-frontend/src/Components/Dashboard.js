@@ -18,5 +18,5 @@ function Dashboard() {
 
 export default Dashboard;
 
-//  <Link to={`/projects/${id}`}>See Details</Link> 
+
 

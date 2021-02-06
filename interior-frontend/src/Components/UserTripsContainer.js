@@ -7,7 +7,6 @@ import UserTripItem from './UserTripItem'
 function UserTripsContainer() {
     const currentUser = useSelector(state => state.users.currentUser)
     const mytrips =currentUser.trips
-    console.log(currentUser.parks)
     
     const mytripElements = mytrips.map((trip) => {
         return <UserTripItem key={trip.id} trip={trip}/>

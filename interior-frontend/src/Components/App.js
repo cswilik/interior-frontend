@@ -6,9 +6,12 @@ import { addUsers} from '../Redux/user'
 import ParksContainer from "./ParksContainer"
 import NavBar from "./Navbar"
 import Dashboard from "./Dashboard"
-import HomePage from './HomePage'
+import HomePage from './pages/HomePage'
 import ProfileForm from './ProfileForm'
-import UserProfile from './UserProfie'
+import UserProfile from './pages/UserProfie'
+import TripProfile from './pages/TripProfile'
+import ParkPage from './ParkPage';
+
 
 function App() {
   const dispatch = useDispatch()
@@ -40,6 +43,12 @@ function App() {
       </Route>
       <Route exact path="/users/:id">
           <UserProfile/>
+      </Route>
+      <Route exact path="/trips/:id">
+          <TripProfile/>
+      </Route>
+      <Route exact path="/parks/:id">
+          <ParkPage/>
       </Route>
 
       </Switch>

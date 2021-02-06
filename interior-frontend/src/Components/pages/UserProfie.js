@@ -1,8 +1,8 @@
 import React, {useEffect, useState } from 'react'
-import { Link, useParams } from "react-router-dom";
-import { showUserProfile } from '../Redux/user'
+import { useParams } from "react-router-dom";
+import { showUserProfile } from '../../Redux/user'
 import {useSelector, useDispatch} from 'react-redux'
-import UserTripsContainer from './UserTripsContainer';
+import UserTripsContainer from '../UserTripsContainer';
 
 function UserProfile() {
     const params = useParams()

@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import { setParkProfile } from '../Redux/park'
 import { Header, Container, Grid, Modal, Button} from 'semantic-ui-react'
@@ -12,7 +12,6 @@ function ParkPage() {
     const parkProfile = useSelector(state => state.parks.parkProfile)
     const dispatch = useDispatch()
 
-    console.log(parkProfile)
 
     useEffect(() => {
         fetch(`http://localhost:3000/parks/${params.id}`)
@@ -52,7 +51,7 @@ function ParkPage() {
                     </Container>
                 </Grid.Column>
                     <Grid.Column width={4}>
-                        <h1>Stuff in here</h1>
+                        <Link to="../users/20">Link to User's Profile</Link>
                         <h1>Stuff in here</h1>
                         <h1>Stuff in here</h1>
                         <h1>Stuff in here</h1>

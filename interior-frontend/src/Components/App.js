@@ -3,6 +3,7 @@ import '../App.css';
 import { Route, Switch } from "react-router-dom";
 import { useSelector, useDispatch} from 'react-redux'
 import { addUsers} from '../Redux/user'
+import { allTrips} from '../Redux/trip'
 import ParksContainer from "./ParksContainer"
 import NavBar from "./Navbar"
 import Dashboard from "./Dashboard"
@@ -23,6 +24,14 @@ function App() {
       .then(resp => resp.json())
       .then(data => {
         dispatch(addUsers(data))
+      })
+  }, [dispatch])
+
+  useEffect(() => {
+    fetch('http://localhost:3000/trips')
+      .then(resp => resp.json())
+      .then(data => {
+        dispatch(allTrips(data))
       })
   }, [dispatch])
   return (

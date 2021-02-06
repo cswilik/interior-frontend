@@ -6,11 +6,26 @@ import UserTripItem from './UserTripItem'
 
 function UserTripsContainer() {
     const currentUser = useSelector(state => state.users.currentUser)
-    const mytrips =currentUser.trips
+    const userTrips = useSelector(({trips})=> {
+           return trips.trips.filter(trip => {
+                return (trip.user.id === currentUser.id)
+            })
+    })
+
+    // if (allTrips.length > 0) {
+    //     const userTrips = allTrips.filter(trip => {
+    //         return (trip.user.id === currentUser.id)
+    //     })
+    //     return userTrips
+    // } 
+  
     
-    const mytripElements = mytrips.map((trip) => {
+    
+
+    const mytripElements = userTrips.map((trip) => {
         return <UserTripItem key={trip.id} trip={trip}/>
     })
+
 
     return (
         <div>

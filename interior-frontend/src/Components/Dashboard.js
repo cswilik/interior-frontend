@@ -6,7 +6,9 @@ import UserTripsContainer from './UserTripsContainer'
 
 function Dashboard() {
     const currentUser = useSelector(state => state.users.currentUser)
-    console.log(currentUser)
+    
+   
+
     return (
         <div>
             <h1>Welcome, {currentUser.name}</h1> 

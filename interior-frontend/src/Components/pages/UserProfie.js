@@ -1,13 +1,17 @@
 import React, {useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { showUserProfile } from '../../Redux/user'
 import {useSelector, useDispatch} from 'react-redux'
-import UserTripsContainer from '../UserTripsContainer';
+// import { Image, Container, Divider } from 'semantic-ui-react'
+// import EditTrip from '../EditTrip'
+import UserTripsContainer from '../UserTripsContainer'
+
 
 function UserProfile() {
     const params = useParams()
     const [isLoaded, setIsLoaded] = useState(false);
     const userProfile = useSelector(state => state.users.userProfile)
+    const currentUser = useSelector(state => state.users.currentUser)
     const dispatch = useDispatch()
 
     console.log(userProfile)
@@ -30,7 +34,7 @@ function UserProfile() {
             <h1>{userProfile.name}'s Profile</h1>
             <h4>{userProfile.bio}</h4>
             <h4>{userProfile.fav_park}</h4>
-            <UserTripsContainer/>
+          {currentUser.id === userProfile.id ? (<UserTripsContainer/>): null} 
         </div>
 
     )

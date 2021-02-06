@@ -1,12 +1,14 @@
 import React, {useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
-import { showTripProfile } from '../../Redux/trip.js'
+import trip, { showTripProfile } from '../../Redux/trip.js'
 import { Image, Container, Divider } from 'semantic-ui-react'
+import EditTrip from '../EditTrip.js';
 
 function TripProfile() {
     const params = useParams()
     const [isLoaded, setIsLoaded] = useState(false);
+    const currentUser = useSelector(state => state.users.currentUser)
     const tripProfile = useSelector(state => state.trips.tripProfile)
     const dispatch = useDispatch()
 
@@ -21,6 +23,8 @@ function TripProfile() {
           })
       }, [params.id, dispatch])
 
+      
+
 
   if (!isLoaded) return <h2>Loading...</h2>;
 
@@ -31,6 +35,7 @@ function TripProfile() {
             <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
             <p><b>Review:</b> {tripProfile.review}</p>
             <button>Likes:{tripProfile.likes}</button>
+            {/* {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)} */}
         </div>
     )
 }

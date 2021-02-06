@@ -1,8 +1,50 @@
 import React, {useState} from 'react'
-import { Button, Header, Image, Modal, Form } from 'semantic-ui-react'
+import {useHistory} from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
+import { newTrip } from '../Redux/trip.js'
+import { Button, Modal, Form } from 'semantic-ui-react'
 
 function NewTripForm() {
     const [open, setOpen] = useState(false)
+    const [length, setLength] = useState("")
+    const [review, setReview] = useState("")
+    const [img, setImg] = useState("")
+    const currentPark = useSelector(state => state.parks.parkProfile)
+    const currentUser = useSelector(state => state.users.currentUser)
+    const dispatch = useDispatch()
+    let history = useHistory()
+    
+    const newTripData = {
+        user_id: currentUser.id,
+        park_id: currentPark.id,
+        length_of_trip: length,
+        review: review,
+        img_url: img,
+        likes: 0
+
+    }
+    
+
+    function handleNewTripSubmit(event) {
+        event.preventDefault()
+        fetch('http://localhost:3000/trips', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify(newTripData)
+          })
+          .then(r => r.json())
+          .then(data => {
+              console.log(data)
+              dispatch(newTrip(data))
+              history.push(`/trips/${data.id}`)
+          })
+          
+        }
+    
+
+    
     return (
         <Modal onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
@@ -11,13 +53,13 @@ function NewTripForm() {
         trigger={<Button floated="right">Have You Visited?</Button>}>
 
 
-        <Modal.Header>Tell Us About Your Trip!</Modal.Header> 
+        <Modal.Header>Tell Us About Your Trip to {currentPark.name}!</Modal.Header> 
         <Modal.Description>
-          <Header>Your Trip to (park name)</Header>
-          <Form >
-                <Form.Input value ="" fluid label ='How long was your stay?' placeholder='A week? 5 days? ' />
-                <Form.TextArea value="" label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' />
-                <Form.Input value="" fluid label ='Upload your favorite image from your trip:' placeholder='image url here'/>
+          <br></br>
+          <Form onSubmit={handleNewTripSubmit} >
+                <Form.Input value ={length} fluid label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}} />
+                <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}}/>
+                <Form.Input value={img} fluid label ='Upload your favorite image from your trip:' placeholder='image url here' onChange={(evt) => {setImg(evt.target.value)}}/>
                 <Form.Button>Submit</Form.Button>
             </Form>
         </Modal.Description>

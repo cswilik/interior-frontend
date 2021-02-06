@@ -7,7 +7,7 @@ import { Grid } from 'semantic-ui-react'
 function ParksContainer() {
     const dispatch = useDispatch()
     const parks  = useSelector(state => state.parks.parks)
-    console.log(parks)
+    
 
     useEffect(()=> {
         fetch('http://localhost:3000/parks')

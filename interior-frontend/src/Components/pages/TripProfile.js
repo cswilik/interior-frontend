@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, useHistory, useLocation } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import trip, { showTripProfile } from '../../Redux/trip.js'
 import { Image, Container, Divider } from 'semantic-ui-react'
@@ -11,8 +11,11 @@ function TripProfile() {
     const currentUser = useSelector(state => state.users.currentUser)
     const tripProfile = useSelector(state => state.trips.tripProfile)
     const dispatch = useDispatch()
+    const history = useHistory()
+    const location = useLocation()
 
-    console.log(tripProfile)
+    // console.log(tripProfile)
+    console.log(location)
 
     useEffect(() => {
         fetch(`http://localhost:3000/trips/${params.id}`)
@@ -35,7 +38,7 @@ function TripProfile() {
             <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
             <p><b>Review:</b> {tripProfile.review}</p>
             <button>Likes:{tripProfile.likes}</button>
-            {/* {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)} */}
+            {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)}
         </div>
     )
 }

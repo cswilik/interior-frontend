@@ -12,6 +12,7 @@ function EditTrip({trip}) {
     const dispatch = useDispatch()
     let history = useHistory()
 
+    
 
     const updatedTrip = {
         id: trip.id,
@@ -33,7 +34,8 @@ function EditTrip({trip}) {
         }).then(resp => resp.json())
         .then(data => {
             dispatch(updateTrip(data))
-            history.push(`./trips/${data.id}`)
+            // history.push(`./trips/${data.id}`)
+            history.goBack()
         })
     }
 

@@ -6,7 +6,7 @@ import EditTrip from './EditTrip'
 
 function UserTripItem({trip}) {
     
-   
+   console.log(trip)
    
     // if the {currentUser.id === trip.user id} ? (<EditTrip trip={trip}/>) : null
     return (

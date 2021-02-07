@@ -1,40 +1,43 @@
-import React, {useEffect, useState } from 'react'
+import React from 'react'
 import { useParams, Link } from "react-router-dom";
-import { showUserProfile } from '../../Redux/user'
-import {useSelector, useDispatch} from 'react-redux'
-// import { Image, Container, Divider } from 'semantic-ui-react'
-// import EditTrip from '../EditTrip'
+import {useSelector} from 'react-redux'
+import { Image, Container, Divider } from 'semantic-ui-react'
 import UserTripsContainer from '../UserTripsContainer'
+
+
 
 
 function UserProfile() {
     const params = useParams()
-    const [isLoaded, setIsLoaded] = useState(false);
-    const userProfile = useSelector(state => state.users.userProfile)
+    const id = parseInt(params.id)
     const currentUser = useSelector(state => state.users.currentUser)
-    const dispatch = useDispatch()
+    const userProfile = useSelector(({users}) => users.users.find(user => {
+      return (user.id === id) 
+  }))
+   
 
-    console.log(userProfile)
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/users/${params.id}`)
-          .then(resp => resp.json())
-          .then(data => {
-            dispatch(showUserProfile(data))
-            setIsLoaded(true)
-          })
-      }, [params.id, dispatch])
-
-
-  if (!isLoaded) return <h2>Loading...</h2>;
-
+  const userTrips = userProfile.trips.map(trip => {
+    return (
+      <div>
+        <Container textAlign='left'>
+        <Link to={`../../trips/${trip.id}`}><Image src={trip.img_url} size='tiny' circular verticalAlign='bottom'></Image></Link>
+        <h5>{trip.length_of_trip}</h5>
+        <p>{trip.review}</p>
+        <span>Likes: {trip.likes}</span>
+        <Divider/>
+        </Container>
+      </div>
+    )
+  })
 
     return (
         <div>
             <h1>{userProfile.name}'s Profile</h1>
             <h4>{userProfile.bio}</h4>
             <h4>{userProfile.fav_park}</h4>
-          {currentUser.id === userProfile.id ? (<UserTripsContainer/>): null} 
+          {currentUser.id === userProfile.id ? (<UserTripsContainer/>) : (
+            userTrips
+          )}
         </div>
 
     )

@@ -12,13 +12,6 @@ function UserTripsContainer() {
             })
     })
 
-    // if (allTrips.length > 0) {
-    //     const userTrips = allTrips.filter(trip => {
-    //         return (trip.user.id === currentUser.id)
-    //     })
-    //     return userTrips
-    // } 
-  
     
     
 

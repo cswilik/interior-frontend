@@ -45,7 +45,7 @@ function App() {
         <Dashboard/>
       </Route>
       <Route exact path="/">
-        <HomePage/>
+        <HomePage />
       </Route>
       <Route exact path="/editprofile">
           <ProfileForm/>

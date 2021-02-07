@@ -1,35 +1,40 @@
-import React, {useEffect, useState } from 'react'
-import { useParams, useHistory, useLocation } from "react-router-dom";
+import React from 'react'
+import { useParams} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
-import trip, { showTripProfile } from '../../Redux/trip.js'
-import { Image, Container, Divider } from 'semantic-ui-react'
+import  { addLikes } from '../../Redux/trip.js'
+import { Image } from 'semantic-ui-react'
 import EditTrip from '../EditTrip.js';
 
 function TripProfile() {
     const params = useParams()
-    const [isLoaded, setIsLoaded] = useState(false);
+    let id = parseInt(params.id)
     const currentUser = useSelector(state => state.users.currentUser)
-    const tripProfile = useSelector(state => state.trips.tripProfile)
+    const tripProfile = useSelector(({trips}) => trips.trips.find(trip => {
+        return (trip.id === id) 
+    }))
     const dispatch = useDispatch()
-    const history = useHistory()
-    const location = useLocation()
+    
 
-    // console.log(tripProfile)
-    console.log(location)
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/trips/${params.id}`)
-          .then(resp => resp.json())
-          .then(data => {
-            dispatch(showTripProfile(data))
-            setIsLoaded(true)
-          })
-      }, [params.id, dispatch])
 
       
+      function handleLikes() {
+        dispatch(addLikes(tripProfile))
+          const updatedLikesObj = {
+              likes: tripProfile.likes
+          }
+            fetch(`http://localhost:3000/trips/${params.id}`, {
+                method: "PATCH",
+                headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify(updatedLikesObj)
+            })
+            .then(r => r.json())
+            .then(data => {
+                console.log(data)})       
+        
+      }
 
-
-  if (!isLoaded) return <h2>Loading...</h2>;
 
     return (
         <div>
@@ -37,7 +42,7 @@ function TripProfile() {
             <Image src={tripProfile.img_url} size="medium"/>
             <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
             <p><b>Review:</b> {tripProfile.review}</p>
-            <button>Likes:{tripProfile.likes}</button>
+            <button onClick={handleLikes}>Likes:{tripProfile.likes}</button>
             {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)}
         </div>
     )

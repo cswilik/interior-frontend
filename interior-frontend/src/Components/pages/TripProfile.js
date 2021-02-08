@@ -15,13 +15,18 @@ function TripProfile() {
     const dispatch = useDispatch()
     
 
+    
+    
+
 
       
       function handleLikes() {
-        dispatch(addLikes(tripProfile))
+        
           const updatedLikesObj = {
-              likes: tripProfile.likes
+              likes: (tripProfile.likes)
           }
+
+          console.log(updatedLikesObj)
             fetch(`http://localhost:3000/trips/${params.id}`, {
                 method: "PATCH",
                 headers: {
@@ -31,11 +36,13 @@ function TripProfile() {
             })
             .then(r => r.json())
             .then(data => {
-                console.log(data)})       
+                console.log(data)
+                dispatch(addLikes(tripProfile))
+            })       
         
       }
 
-
+      if (tripProfile) {
     return (
         <div>
             <h1>{tripProfile.user.name}'s trip to {tripProfile.park.name}</h1>
@@ -45,7 +52,10 @@ function TripProfile() {
             <button onClick={handleLikes}>Likes:{tripProfile.likes}</button>
             {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)}
         </div>
-    )
+    )} else {
+        return (<h4>Is Loading...</h4>)
+    }
+    
 }
 
 export default TripProfile;

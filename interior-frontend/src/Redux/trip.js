@@ -18,10 +18,9 @@ const tripSlice = createSlice({
         },
         updateTrip: (state, action) => {
             const trip = state.trips.find(trip => trip.id === action.payload.id)
-            return (trip.length_of_trip = action.payload.length_of_trip,
-            trip.review = action.payload.review,
-            trip.img_url = action.payload.img_url)
-            
+            trip.length_of_trip = action.payload.length_of_trip
+            trip.review = action.payload.review
+            trip.img_url = action.payload.img_url
         },
         deleteTrip: (state, action) => {
             // state.trips.filter(trip => trip.id !== action.payload.id);

@@ -2,7 +2,7 @@ import React, {useEffect, useState } from 'react'
 import { useParams, Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import { setParkProfile } from '../Redux/park'
-import { Header, Container, Grid, Modal, Button} from 'semantic-ui-react'
+import { Header, Container, Grid } from 'semantic-ui-react'
 import NewTripForm from './NewTripForm'
 
 
@@ -11,6 +11,8 @@ function ParkPage() {
     const [isLoaded, setIsLoaded] = useState(false);
     const parkProfile = useSelector(state => state.parks.parkProfile)
     const dispatch = useDispatch()
+
+
 
 
     useEffect(() => {

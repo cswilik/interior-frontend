@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {useHistory} from 'react-router-dom'
+import {useHistory, useLocation} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { updateTrip, deleteTrip } from '../Redux/trip.js'
 import { Button, Modal, Form } from 'semantic-ui-react'
@@ -11,7 +11,7 @@ function EditTrip({trip}) {
     const [img, setImg] = useState(trip.img_url)
     const dispatch = useDispatch()
     let history = useHistory()
-
+    
     
 
     const updatedTrip = {
@@ -49,14 +49,14 @@ function EditTrip({trip}) {
         }).then(resp => resp.json())
         .then(data => {
             dispatch(deleteTrip(data))
-            history.push('./dashboard')
+            history.push('../dashboard')
         })
     }
     
 
     
     
-
+  
    return (
     <Modal onClose={() => setOpen(false)}
     onOpen={() => setOpen(true)}

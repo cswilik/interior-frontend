@@ -1,14 +1,10 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
 import { Image, Container, Divider } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import EditTrip from './EditTrip'
 
 function UserTripItem({trip}) {
     
-   console.log(trip)
-   
-    // if the {currentUser.id === trip.user id} ? (<EditTrip trip={trip}/>) : null
     return (
         <div>
             <Container textAlign='left'>

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import '../App.css';
 import { Route, Switch } from "react-router-dom";
-import { useSelector, useDispatch} from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { addUsers} from '../Redux/user'
 import { allTrips} from '../Redux/trip'
+import { addParks} from '../Redux/park'
 import ParksContainer from "./ParksContainer"
 import NavBar from "./Navbar"
 import Dashboard from "./Dashboard"
@@ -17,8 +18,7 @@ import RetailPage from './pages/RetailPage';
 
 function App() {
   const dispatch = useDispatch()
-  const users = useSelector(state => state.users.users)
-  console.log(users)
+  // const users = useSelector(state => state.users.users)
 
   useEffect(() => {
     fetch('http://localhost:3000/users')
@@ -35,6 +35,14 @@ function App() {
         dispatch(allTrips(data))
       })
   }, [dispatch])
+
+  useEffect(()=> {
+    fetch('http://localhost:3000/parks')
+    .then(r => r.json())
+    .then(parksArr => {
+        dispatch(addParks(parksArr))
+    })
+}, [dispatch])
   return (
     <div className="App">
       <NavBar/>

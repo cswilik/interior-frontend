@@ -1,7 +1,7 @@
 import  React, { useEffect, useState } from 'react'
 import ParkItem from "./ParkItem"
 import { useSelector, useDispatch} from 'react-redux'
-import {addParks} from '../Redux/park'
+
 import { Grid, Input } from 'semantic-ui-react'
 
 function ParksContainer() {
@@ -9,13 +9,6 @@ function ParksContainer() {
     const parks  = useSelector(state => state.parks.parks)
     const [search, setSearch] = useState("")
 
-    useEffect(()=> {
-        fetch('http://localhost:3000/parks')
-        .then(r => r.json())
-        .then(parksArr => {
-            dispatch(addParks(parksArr))
-        })
-    }, [dispatch])
 
     
     const filteredParks = parks.filter(park => {

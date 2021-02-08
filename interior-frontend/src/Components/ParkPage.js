@@ -1,22 +1,26 @@
 import React from 'react'
 import { useParams, Link } from "react-router-dom";
 import {useSelector} from 'react-redux'
-// import { setParkProfile } from '../Redux/park'
 import { Header, Container, Grid, Image} from 'semantic-ui-react'
 import NewTripForm from './NewTripForm'
+import trip from '../Redux/trip';
 
 
 function ParkPage() {
     const params = useParams()
     let id = parseInt(params.id)
-    // const dispatch = useDispatch()
     const park = useSelector(({parks}) => parks.parks.find(park => {
         return (park.id === id) 
     }))
-
     const tripsToPark = park.trips.map(trip => {
         return (<><Link to={`../trips/${trip.id}`}><Image src={trip.img_url} ize='tiny'/><br></br></Link></> )
     })
+    const currentUser = useSelector(({users}) => users.currentUser)
+    console.log(currentUser)
+
+    // const currentUserParks = currentUser.trips.map(trip => {
+    //     (trip.park.id === park.id)
+    // })
 
     return (
         <div >
@@ -36,8 +40,9 @@ function ParkPage() {
                     <Container textAlign= "left">
                         
                         <Header as='h2'>
+                            {/* if current user has visited park, link to their trip page? */}
                             <NewTripForm park ={park}/>
-                        {/* <button className="trip-btn">Have You Visited?</button> */}
+                        
                         About this park:<Header sub>{park.location}</Header>
                         </Header>
                             <p><b> Entrance Fees:</b><br></br>${park.entrance_fees}</p>
@@ -45,9 +50,7 @@ function ParkPage() {
                     </Container>
                 </Grid.Column>
                     <Grid.Column width={4}>
-                        {/* <Link to="../users/20">Link to User's Profile</Link> */}
                         {tripsToPark}
-                        
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

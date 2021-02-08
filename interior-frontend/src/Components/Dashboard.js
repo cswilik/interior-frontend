@@ -10,13 +10,16 @@ function Dashboard() {
    
 
     return (
+        // (user.name === null || user.name === "" ? <span className="callout">⬇We don't know your name yet  </span> : null}<br />
+
         <div>
-            <h1>Welcome, {currentUser.name}</h1> 
+            <h1>Welcome {currentUser.name}</h1> 
+            {(currentUser.name === null || currentUser.name === "" ? <h6 className="callout">⬇Please Fill Out Your Profile  </h6> : null)}
             <Link to='./editprofile'>Edit Profile</Link> | <Link to={`./users/${currentUser.id}`}>Public Profile</Link>
             <UserTripsContainer/>
        </div>
     )
-}
+}   
 
 export default Dashboard;
 

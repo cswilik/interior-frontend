@@ -7,6 +7,7 @@ import UserTripsContainer from '../UserTripsContainer'
 
 
 
+
 function UserProfile() {
     const params = useParams()
     const id = parseInt(params.id)
@@ -14,6 +15,17 @@ function UserProfile() {
     const userProfile = useSelector(({users}) => users.users.find(user => {
       return (user.id === id) 
   }))
+    const trips = useSelector(({trips})=> trips.trips.filter( trip => {
+       return (trip.user.id === currentUser.id) 
+      } 
+    ))
+     const parks = trips.map(trip => {
+       return trip.park
+      })
+  console.log(trips)
+ 
+ 
+ 
    
 
   const userTrips = userProfile.trips.map(trip => {
@@ -36,7 +48,7 @@ function UserProfile() {
             <h4><b>Bio:</b> {userProfile.bio}</h4>
             <h4><b>{userProfile.name}'s Favorite Park:</b> {userProfile.fav_park}</h4>
             
-            <p>{userProfile.name} has visited {userProfile.parks.length} park(s) so far!</p>
+            <p>{userProfile.name} has visited {parks.length} park(s) so far!</p>
           {currentUser.id === userProfile.id ? (<UserTripsContainer/>) : (
             userTrips
           )}

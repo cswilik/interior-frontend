@@ -34,6 +34,6 @@ code {
   background-position: center 
 }
 
-.tree-icon {
-  background-image: './tree-icon.png' !important;
+.main-icon {
+  border: none !important;
 }

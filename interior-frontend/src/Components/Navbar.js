@@ -24,9 +24,10 @@ function NavBar() {
     return (
         <nav >
             <Menu  className='nav-bar'>
-                <Icon className=" big tree" link to='/'></Icon>
+                <NavLink exact to='/'><Icon name='big tree' color='black' /></NavLink>
+            {/* <Menu.Item as={ NavLink }  to='./'><Icon name='big tree' /></Menu.Item> */}
                 
-                <Menu.Item position='right'as={NavLink} exact to='/dashboard'> Dashboard</Menu.Item>
+                <Menu.Item position='right'as={NavLink} exact to='/dashboard' className='main-icon'> Dashboard</Menu.Item>
                 <Menu.Item as={NavLink} exact to='/exploretheparks'> Explore the Parks</Menu.Item>
                 <Menu.Item as={NavLink} exact to="/retail">Retail</Menu.Item>
                 {currentUser ? (

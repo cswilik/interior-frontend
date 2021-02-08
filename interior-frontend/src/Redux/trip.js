@@ -30,7 +30,7 @@ const tripSlice = createSlice({
         },
         addLikes: (state, action) => {
             const trip = state.trips.find(trip => trip.id === action.payload.id)
-            trip.likes += 1
+            trip.likes = trip.likes + 1
             return (console.log(trip.likes))
             
         }

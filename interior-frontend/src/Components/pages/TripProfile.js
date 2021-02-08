@@ -1,9 +1,10 @@
 import React from 'react'
-import { useParams} from "react-router-dom";
+import { useParams, Link} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import  { addLikes } from '../../Redux/trip.js'
 import { Image } from 'semantic-ui-react'
 import EditTrip from '../EditTrip.js';
+
 
 function TripProfile() {
     const params = useParams()
@@ -16,14 +17,14 @@ function TripProfile() {
     
 
     
-    
+    console.log(tripProfile)
 
 
       
       function handleLikes() {
         
           const updatedLikesObj = {
-              likes: (tripProfile.likes)
+              likes: (tripProfile.likes + 1)
           }
 
           console.log(updatedLikesObj)
@@ -37,7 +38,7 @@ function TripProfile() {
             .then(r => r.json())
             .then(data => {
                 console.log(data)
-                dispatch(addLikes(tripProfile))
+                dispatch(addLikes(data))
             })       
         
       }
@@ -46,6 +47,7 @@ function TripProfile() {
     return (
         <div>
             <h1>{tripProfile.user.name}'s trip to {tripProfile.park.name}</h1>
+            <Link to={`../users/${tripProfile.user.id}`}>{tripProfile.user.name}'s  Profile</Link>
             <Image src={tripProfile.img_url} size="medium"/>
             <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
             <p><b>Review:</b> {tripProfile.review}</p>

@@ -12,6 +12,7 @@ import ProfileForm from './ProfileForm'
 import UserProfile from './pages/UserProfie'
 import TripProfile from './pages/TripProfile'
 import ParkPage from './ParkPage';
+import RetailPage from './pages/RetailPage';
 
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
       </Route>
       <Route exact path="/parks/:id">
           <ParkPage/>
+      </Route>
+      <Route exact path="/retail">
+          <RetailPage/>
       </Route>
 
       </Switch>

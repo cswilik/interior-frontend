@@ -4,19 +4,19 @@ import {useSelector, useDispatch} from 'react-redux'
 import { newTrip } from '../Redux/trip.js'
 import { Button, Modal, Form } from 'semantic-ui-react'
 
-function NewTripForm() {
+function NewTripForm({park}) {
     const [open, setOpen] = useState(false)
     const [length, setLength] = useState("")
     const [review, setReview] = useState("")
     const [img, setImg] = useState("")
-    const currentPark = useSelector(state => state.parks.parkProfile)
     const currentUser = useSelector(state => state.users.currentUser)
     const dispatch = useDispatch()
     let history = useHistory()
+
     
     const newTripData = {
         user_id: currentUser.id,
-        park_id: currentPark.id,
+        park_id: park.id,
         length_of_trip: length,
         review: review,
         img_url: img,
@@ -53,7 +53,7 @@ function NewTripForm() {
         trigger={<Button floated="right">Have You Visited?</Button>}>
 
 
-        <Modal.Header>Tell Us About Your Trip to {currentPark.name}!</Modal.Header> 
+        <Modal.Header>Tell Us About Your Trip to {park.name}!</Modal.Header> 
         <Modal.Description>
           <br></br>
           <Form onSubmit={handleNewTripSubmit} >

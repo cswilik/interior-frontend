@@ -1,4 +1,5 @@
 body {
+  background-color:  rgb(236,230,214) !important;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,10 +13,27 @@ code {
     monospace;
 }
 
+.nav-bar {
+  background-color: rgb(236,230,214) !important;
+}
+
 
 
 .trip-btn {
   float: right;
   font-size: small;
   display: inline-block
+}
+
+.home-page-header {
+  background-image: url('../src/homepage.jpeg');
+  height: 40vw;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 
+}
+
+.tree-icon {
+  background-image: './tree-icon.png' !important;
 }

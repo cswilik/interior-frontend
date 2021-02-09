@@ -31,13 +31,23 @@ code {
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 
+  background-position: center;
+  margin: 0%;
 }
 
 .main-icon {
   border: none !important;
 }
 
+h1.ui.header {
+  color: white;
+  margin-top: 4em !important;
+  font-size: 60px!important;
+}
+
 .park-title {
-  place-items: center;
+  color: white !important;
+  margin-top: 4em !important;
+  font-size: 60px!important;
+  line-height: 60px !important;
 }

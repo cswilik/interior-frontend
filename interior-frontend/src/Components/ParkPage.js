@@ -54,7 +54,7 @@ function ParkPage() {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: `center `
             }} textAlign="center" >
-            <Header.Content >{park.name}</Header.Content>
+            <Header.Content className="park-title">{park.name}</Header.Content>
             </Header>
            <Grid celled>
                 <Grid.Row>

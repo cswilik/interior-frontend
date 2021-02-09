@@ -20,6 +20,7 @@ function NewTripForm({park}) {
         user_id: currentUser.id,
         park_id: park.id,
         length_of_trip: length,
+        review: review,
         likes: 0,
         img_url: file
 
@@ -33,6 +34,7 @@ function NewTripForm({park}) {
         const form =  new FormData()
         form.append("user_id", newTripData.user_id)
         form.append("park_id", newTripData.park_id)
+        form.append("review", newTripData.review)
         form.append("length_of_trip", newTripData.length_of_trip)
         form.append("likes", newTripData.likes)
         form.append("img_url", newTripData.img_url)

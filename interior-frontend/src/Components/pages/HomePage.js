@@ -5,10 +5,13 @@ import { Header, Container, Grid, Icon} from 'semantic-ui-react'
 function HomePage() {
     return (
         <div >
-        <Header className="home-page-header" textAlign="center" >
-         <Header.Content>Interior</Header.Content>
-         </Header>
         <Grid celled>
+            <Grid.Row columns={16} className="home-page-header">
+            <Container textAlign='left'  >
+                <Header as='h1'>Interior</Header>
+            </Container>
+            </Grid.Row>
+        
              <Grid.Row columns={5}>
              <Grid.Column width={16}>
                  <Container textAlign= "left">

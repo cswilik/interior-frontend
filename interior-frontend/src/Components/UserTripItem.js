@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import EditTrip from './EditTrip'
 
 function UserTripItem({trip}) {
+
+    console.log(trip)
     
     return (
         <div>

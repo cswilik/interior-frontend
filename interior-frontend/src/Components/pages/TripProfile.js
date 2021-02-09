@@ -17,18 +17,18 @@ function TripProfile() {
     
 
     
-    // console.log(tripProfile)
+    console.log(tripProfile)
 
 
       
       function handleLikes() {
         
           const updatedLikesObj = {
+              id: tripProfile.id,
               likes: (tripProfile.likes + 1)
           }
 
-          console.log(updatedLikesObj)
-            fetch(`http://localhost:3000/trips/${params.id}`, {
+            fetch(`http://localhost:3000/likes`, {
                 method: "PATCH",
                 headers: {
                 'Content-Type': 'application/json'

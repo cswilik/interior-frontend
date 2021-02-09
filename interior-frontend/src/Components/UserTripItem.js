@@ -5,7 +5,6 @@ import EditTrip from './EditTrip'
 
 function UserTripItem({trip}) {
 
-    console.log(trip)
     
     return (
         <div>

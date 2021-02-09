@@ -36,7 +36,7 @@ function NewTripForm({park}) {
         form.append("length_of_trip", newTripData.length_of_trip)
         form.append("likes", newTripData.likes)
         form.append("img_url", newTripData.img_url)
-        form.append("api_key", "352974619581476");
+        // form.append("api_key", "352974619581476");
         fetch('http://localhost:3000/trips', {
             method: 'POST',
             // headers: {

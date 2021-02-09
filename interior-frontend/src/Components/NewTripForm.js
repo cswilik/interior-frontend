@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import { newTrip } from '../Redux/trip.js'
+// import { setCurrentUser } from '../Redux/user.js'
 import { Button, Modal, Form } from 'semantic-ui-react'
 
 function NewTripForm({park}) {

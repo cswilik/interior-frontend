@@ -15,6 +15,7 @@ const tripSlice = createSlice({
         },
         newTrip: (state, action) => {
             state.trips.push(action.payload)
+            
         },
         updateTrip: (state, action) => {
             const trip = state.trips.find(trip => trip.id === action.payload.id)

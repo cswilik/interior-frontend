@@ -17,7 +17,7 @@ function TripProfile() {
     
 
     
-    console.log(tripProfile)
+    // console.log(tripProfile)
 
 
       

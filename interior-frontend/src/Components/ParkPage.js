@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams, Link } from "react-router-dom";
-import {useSelector} from 'react-redux'
-import { Header, Container, Grid, Image} from 'semantic-ui-react'
+import {useSelector, useDispatch} from 'react-redux'
+import { Header, Container, Grid, Image, Button} from 'semantic-ui-react'
 import NewTripForm from './NewTripForm'
-import trip from '../Redux/trip';
+import { setCurrentUser } from '../Redux/user';
+import { addParks } from '../Redux/park';
+
+
 
 
 function ParkPage() {
+    const dispatch = useDispatch()
     const params = useParams()
     let id = parseInt(params.id)
     const park = useSelector(({parks}) => parks.parks.find(park => {
@@ -16,11 +20,29 @@ function ParkPage() {
         return (<><Link to={`../trips/${trip.id}`}><Image src={trip.img_url} ize='tiny'/><br></br></Link></> )
     })
     const currentUser = useSelector(({users}) => users.currentUser)
-    console.log(currentUser)
+    const currentUserPark = currentUser.trips.find(trip => {
+        return (trip.park_id === park.id)
+    })
+    const trips = useSelector(({trips}) => (trips.trips))
 
-    // const currentUserParks = currentUser.trips.map(trip => {
-    //     (trip.park.id === park.id)
-    // })
+   useEffect(() => {
+       fetch('http://localhost:3000/login', {
+           method: "POST"
+       })
+       .then(r => r.json())
+       .then(data => {
+            dispatch(setCurrentUser(data))
+       })
+   }, [trips, dispatch])
+
+
+   useEffect(() => {
+    fetch('http://localhost:3000/parks')
+    .then(r => r.json())
+    .then(parksArr => {
+        dispatch(addParks(parksArr))
+    })
+}, [trips, dispatch])
 
     return (
         <div >
@@ -32,7 +54,7 @@ function ParkPage() {
             backgroundRepeat: 'no-repeat',
             backgroundPosition: `center `
             }} textAlign="center" >
-            <Header.Content>{park.name}</Header.Content>
+            <Header.Content >{park.name}</Header.Content>
             </Header>
            <Grid celled>
                 <Grid.Row>
@@ -40,8 +62,8 @@ function ParkPage() {
                     <Container textAlign= "left">
                         
                         <Header as='h2'>
-                            {/* if current user has visited park, link to their trip page? */}
-                            <NewTripForm park ={park}/>
+                         {currentUserPark ? (<Button as={Link} exact to={`../trips/${currentUserPark.id}`} floated='right'>See Your Trip</Button>) : (<NewTripForm park ={park}/>)  }
+                    
                         
                         About this park:<Header sub>{park.location}</Header>
                         </Header>

@@ -37,3 +37,7 @@ code {
 .main-icon {
   border: none !important;
 }
+
+.park-title {
+  place-items: center;
+}

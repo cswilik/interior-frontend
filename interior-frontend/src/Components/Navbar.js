@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from 'react-redux'
 
 function NavBar() {
     const currentUser = useSelector(state => state.users.currentUser)
-    console.log(currentUser)
     const dispatch = useDispatch()
 
 

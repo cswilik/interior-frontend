@@ -51,3 +51,14 @@ h1.ui.header {
   font-size: 60px!important;
   line-height: 60px !important;
 }
+
+.map-div {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  position: relative !important;
+  width: 150vw  !important;
+  height: 40vh;
+  
+}
+

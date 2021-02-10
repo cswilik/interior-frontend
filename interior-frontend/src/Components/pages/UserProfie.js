@@ -22,7 +22,7 @@ function UserProfile() {
      const parks = trips.map(trip => {
        return trip.park
       })
-  console.log(trips)
+  
  
  
  

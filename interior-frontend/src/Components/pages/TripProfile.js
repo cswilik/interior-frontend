@@ -15,9 +15,8 @@ function TripProfile() {
     }))
     const dispatch = useDispatch()
     
-
+    const user = useSelector(state => state.users.users.find(user =>  user.id === tripProfile.user.id))
     
-    console.log(tripProfile)
 
 
       
@@ -46,8 +45,8 @@ function TripProfile() {
       if (tripProfile) {
     return (
         <div>
-            <h1>{tripProfile.user.name}'s trip to {tripProfile.park.name}</h1>
-            <Link to={`../users/${tripProfile.user.id}`}>{tripProfile.user.name}'s  Profile</Link>
+            <h1>{user.name}'s trip to {tripProfile.park.name}</h1>
+            <Link to={`../users/${tripProfile.user.id}`}>{user.name}'s  Profile</Link>
             <Image src={tripProfile.img_url} size="medium"/>
             <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
             <p><b>Review:</b> {tripProfile.review}</p>

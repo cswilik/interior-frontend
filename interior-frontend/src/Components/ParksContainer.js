@@ -1,11 +1,11 @@
-import  React, { useEffect, useState } from 'react'
+import  React, { useState } from 'react'
 import ParkItem from "./ParkItem"
-import { useSelector, useDispatch} from 'react-redux'
+import { useSelector} from 'react-redux'
 
 import { Grid, Input } from 'semantic-ui-react'
 
 function ParksContainer() {
-    const dispatch = useDispatch()
+    
     const parks  = useSelector(state => state.parks.parks)
     const [search, setSearch] = useState("")
 
@@ -27,7 +27,7 @@ function ParksContainer() {
     }
 
     
-        // return  (park.name.lowerCase().includes(search.lowerCase()})
+
 
 
     return( 

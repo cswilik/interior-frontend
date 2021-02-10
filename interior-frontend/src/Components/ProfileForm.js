@@ -9,9 +9,9 @@ function ProfileForm() {
     const currentUser = useSelector(state => state.users.currentUser)
     let history = useHistory()
     const dispatch = useDispatch()
-    const [name, setUserName] = useState("")
-    const [bio, setUserBio] = useState("")
-    const [favPark, setFavPark] = useState("")
+    const [name, setUserName] = useState(currentUser.name)
+    const [bio, setUserBio] = useState(currentUser.bio)
+    const [favPark, setFavPark] = useState(currentUser.fav_park)
 
     const profileData = {
         id: currentUser.id,

@@ -5,6 +5,8 @@ import { Header, Container, Grid, Image, Button} from 'semantic-ui-react'
 import NewTripForm from './NewTripForm'
 import { setCurrentUser } from '../Redux/user';
 import { addParks } from '../Redux/park';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
+
 
 
 
@@ -44,6 +46,18 @@ function ParkPage() {
     })
 }, [trips, dispatch])
 
+    const style = {
+        width: '300px',
+        height: '300px',
+        boxShadow: '3px 3px 3px 3px #888888'
+    }
+
+    // const containerStyle = {
+    //     position: 'relative',  
+    //     width: '100%',
+    //     height: '100%'
+    //   }
+
     return (
         <div >
            <Header style={{
@@ -66,7 +80,20 @@ function ParkPage() {
                     
                         
                         About this park:<Header sub>{park.location}</Header>
+                        <div className='map-div'>
+                        <Map google={window.google} zoom={9}
+                            center={{
+                                lat: park.lat,
+                                lng: park.long
+                              }}
+                              style={style}
+                              >
+                                  <Marker position={{lat: park.lat, lng: park.long}}/>
+                        </Map>
+                        </div>
+                        <br></br>
                         </Header>
+                            
                             <p><b> Entrance Fees:</b><br></br>${park.entrance_fees}</p>
                             <p><b>Description:</b><br></br>{park.description}</p>
                     </Container>
@@ -83,4 +110,7 @@ function ParkPage() {
 
 }
 
-export default ParkPage
+export default GoogleApiWrapper({
+    apiKey: (process.env.REACT_APP_GOOGLE_API_KEY)
+   }) (ParkPage)
+// export default ParkPage

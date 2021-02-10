@@ -18,7 +18,7 @@ import RetailPage from './pages/RetailPage';
 
 function App() {
   const dispatch = useDispatch()
-  // const users = useSelector(state => state.users.users)
+  
 
   useEffect(() => {
     fetch('http://localhost:3000/users')

@@ -8,7 +8,7 @@ function Dashboard() {
     const currentUser = useSelector(state => state.users.currentUser)
     
    
-
+    if (currentUser) {
     return (
         // (user.name === null || user.name === "" ? <span className="callout">⬇We don't know your name yet  </span> : null}<br />
 
@@ -19,6 +19,9 @@ function Dashboard() {
             <UserTripsContainer/>
        </div>
     )
+    } else {
+        return (<h4>Is Loading...</h4>)
+    }
 }   
 
 export default Dashboard;

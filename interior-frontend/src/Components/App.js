@@ -14,6 +14,7 @@ import UserProfile from './pages/UserProfie'
 import TripProfile from './pages/TripProfile'
 import ParkPage from './ParkPage';
 import RetailPage from './pages/RetailPage';
+import Login from './Login'
 
 
 function App() {
@@ -70,6 +71,9 @@ function App() {
       </Route>
       <Route exact path="/retail">
           <RetailPage/>
+      </Route>
+      <Route exact path="/login">
+          <Login/>
       </Route>
 
       </Switch>

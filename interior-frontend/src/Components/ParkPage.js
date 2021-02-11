@@ -27,9 +27,17 @@ function ParkPage() {
     })
     const trips = useSelector(({trips}) => (trips.trips))
 
+    const currentUserData = {
+        email: currentUser.email
+    }
+
    useEffect(() => {
        fetch('http://localhost:3000/login', {
-           method: "POST"
+           method: "POST",
+           headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(currentUserData)
        })
        .then(r => r.json())
        .then(data => {

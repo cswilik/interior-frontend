@@ -57,6 +57,7 @@ function EditTrip({trip}) {
         .then(data => {
             dispatch(deleteTrip(data))
             history.push('../dashboard')
+            // alert("Trip has been deleted")
         })
     }
     

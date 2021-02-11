@@ -14,6 +14,10 @@ const userSlice = createSlice({
         setCurrentUser: (state, action) => {
             state.currentUser = action.payload
         },
+        newUser: (state, action) => {
+            state.users.push(action.payload)
+            
+        },
         updatedUsers: (state, action) => {
             const user = state.users.find((user) => user.id === action.payload.id);
             user.name = action.payload.name
@@ -30,7 +34,7 @@ const userSlice = createSlice({
 
 
 // actions
-export const {addUsers, setCurrentUser, updatedUsers, showUserProfile} = userSlice.actions
+export const {addUsers, setCurrentUser, updatedUsers, showUserProfile, newUser} = userSlice.actions
 
 // reducer
 export default userSlice.reducer;

@@ -17,16 +17,13 @@ function TripProfile() {
     
     const user = useSelector(state => state.users.users.find(user =>  user.id === tripProfile.user.id))
     
-
+    const updatedLikesObj = {
+        id: tripProfile.id,
+        likes: (tripProfile.likes + 1)
+    }
 
       
       function handleLikes() {
-        
-          const updatedLikesObj = {
-              id: tripProfile.id,
-              likes: (tripProfile.likes + 1)
-          }
-
             fetch(`http://localhost:3000/likes`, {
                 method: "PATCH",
                 headers: {

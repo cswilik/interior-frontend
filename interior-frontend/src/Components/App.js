@@ -15,6 +15,7 @@ import TripProfile from './pages/TripProfile'
 import ParkPage from './ParkPage';
 import RetailPage from './pages/RetailPage';
 import Login from './Login'
+import Signup from './Signup'
 
 
 function App() {
@@ -26,8 +27,11 @@ function App() {
       .then(resp => resp.json())
       .then(data => {
         dispatch(addUsers(data))
+        console.log(data)
       })
   }, [dispatch])
+
+  console.log()
 
   useEffect(() => {
     fetch('http://localhost:3000/trips')
@@ -74,6 +78,9 @@ function App() {
       </Route>
       <Route exact path="/login">
           <Login/>
+      </Route>
+      <Route exact path="/signup">
+          <Signup/>
       </Route>
 
       </Switch>

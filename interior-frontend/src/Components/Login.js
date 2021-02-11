@@ -1,8 +1,8 @@
 import React, { useState} from 'react'
 import { setCurrentUser } from '../Redux/user'
 import { useDispatch} from 'react-redux'
-import { Form } from 'semantic-ui-react'
-import {useHistory} from 'react-router-dom'
+import { Button, Form } from 'semantic-ui-react'
+import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
     const [email, setEmail] = useState("")
@@ -39,6 +39,7 @@ function Login() {
                 <Form.Input type= 'password' fluid label = "Password" placeholder='Enter your password'></Form.Input>
                 <Form.Button>Submit</Form.Button>
             </Form>
+            <Link exact to="./signup">First time? Sign up Here</Link>
         </div>
     )
 }

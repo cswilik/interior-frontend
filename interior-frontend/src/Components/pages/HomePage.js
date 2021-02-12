@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Container, Grid, Icon} from 'semantic-ui-react'
+import { Header, Container, Grid, Icon, Menu} from 'semantic-ui-react'
 
 
 function HomePage() {
@@ -16,7 +16,7 @@ function HomePage() {
              <Grid.Column width={16}>
                  <Container textAlign= "left">
                      
-                    <h1>Enjoy the parks</h1>
+                    <h1>Learn about our beloved National Parks and tell us about your visits</h1>
                    
                  </Container>
              </Grid.Column>
@@ -24,7 +24,9 @@ function HomePage() {
              <Grid.Row columns={2}>
                 <Container textAlign= "center">
                     <p>Made with <Icon name='heart' color='red'/> by Chelsey Swilik </p>
-                    <span><Icon className='instagram'/>|<Icon className='github'/>|<Icon className='linkedin'/></span>
+                    <Menu className="borderless">
+                        <Menu.Item position="right" href="https://www.instagram.com/cswilik/?hl=en" > <Icon className='instagram' /></Menu.Item><Menu.Item href="https://github.com/cswilik"><Icon className='github'/></Menu.Item><Menu.Item position="left" href="https://www.linkedin.com/in/chelsey-swilik-2b9033203/"><Icon className='linkedin'/></Menu.Item>
+                    </Menu>
                  </Container>
              </Grid.Row>
          </Grid>

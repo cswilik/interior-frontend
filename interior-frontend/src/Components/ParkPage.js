@@ -19,19 +19,22 @@ function ParkPage() {
         return (park.id === id) 
     }))
     const tripsToPark = park.trips.map(trip => {
-        return (<><Link to={`../trips/${trip.id}`}><Image src={trip.img_url} ize='tiny'/><br></br></Link></> )
+        return (<><Link key={trip.id} exact='true' to={`../trips/${trip.id}`}><Image key={trip.id} src={trip.img_url} size='medium'/><br></br></Link></> )
     })
     const currentUser = useSelector(({users}) => users.currentUser)
     const currentUserPark = currentUser.trips.find(trip => {
         return (trip.park_id === park.id)
     })
     const trips = useSelector(({trips}) => (trips.trips))
-
+     
     const currentUserData = {
         email: currentUser.email
     }
+    
 
+    // Similar to componentDidMount and componentDidUpdate:
    useEffect(() => {
+    
        fetch('http://localhost:3000/login', {
            method: "POST",
            headers: {
@@ -60,11 +63,7 @@ function ParkPage() {
         boxShadow: '3px 3px 3px 3px #888888'
     }
 
-    // const containerStyle = {
-    //     position: 'relative',  
-    //     width: '100%',
-    //     height: '100%'
-    //   }
+   
 
     return (
         <div >

@@ -17,7 +17,7 @@ function ParksContainer() {
 
     
     const parkElements = filteredParks.map(park => {
-        return (<Grid.Column>
+        return (<Grid.Column key={park.id}>
         <ParkItem key={park.id} park={park}/>
         </Grid.Column>)
     })

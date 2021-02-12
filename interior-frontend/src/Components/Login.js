@@ -1,7 +1,7 @@
 import React, { useState} from 'react'
 import { setCurrentUser } from '../Redux/user'
 import { useDispatch} from 'react-redux'
-import { Button, Form } from 'semantic-ui-react'
+import {  Button,Form } from 'semantic-ui-react'
 import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
@@ -37,9 +37,9 @@ function Login() {
             <Form onSubmit={login}>
                 <Form.Input value ={email} fluid label ='Email' placeholder='Enter your email address' onChange={(evt) => setEmail(evt.target.value)} />
                 <Form.Input type= 'password' fluid label = "Password" placeholder='Enter your password'></Form.Input>
-                <Form.Button>Submit</Form.Button>
+                <Button>Submit</Button>
             </Form>
-            <Link exact to="./signup">First time? Sign up Here</Link>
+            <Link to="./signup">First time? Sign up Here</Link>
         </div>
     )
 }

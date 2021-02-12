@@ -34,9 +34,7 @@ function EditTrip({trip}) {
         form.append("img_url", updatedTrip.img_url)
         fetch(`http://localhost:3000/trips/${trip.id}}`, {
             method: 'PATCH',
-            // headers: {
-            //   'Content-Type': 'application/json',
-            // },
+            
             body: form
         }).then(resp => resp.json())
         .then(data => {

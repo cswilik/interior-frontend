@@ -62,23 +62,25 @@ function NewTripForm({park}) {
 
     
     return (
-        <Modal onClose={() => setOpen(false)}
+        <Modal as={Form} onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
         closeIcon
-        trigger={<Button floated="right">Have You Visited?</Button>}>
+        trigger={<Button floated="right">Have You Visited?</Button>}
+        onSubmit={handleNewTripSubmit}
+        >
 
 
         <Modal.Header>Tell Us About Your Trip to {park.name}!</Modal.Header> 
         <Modal.Description>
           <br></br>
           
-          <Form onSubmit={handleNewTripSubmit} >
+          {/* <Form onSubmit={handleNewTripSubmit} > */}
                 <Form.Input value ={length} fluid label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}} />
                 <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}}/>
                 <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>
                 <Form.Button>Submit</Form.Button>
-            </Form>
+            {/* </Form> */}
         </Modal.Description>
 
 

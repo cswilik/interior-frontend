@@ -32,7 +32,7 @@ function UserProfile() {
     return (
       <div>
         <Container textAlign='left'>
-        <Link to={`../../trips/${trip.id}`}><Image src={trip.img_url} size='tiny' circular verticalAlign='bottom'></Image></Link>
+        <Link key={trip.id} to={`../../trips/${trip.id}`}><Image src={trip.img_url} size='tiny' circular verticalAlign='bottom'></Image></Link>
         <h5>{trip.length_of_trip}</h5>
         <p>{trip.review}</p>
         <span>Likes: {trip.likes}</span>

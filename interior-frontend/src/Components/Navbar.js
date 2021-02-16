@@ -13,7 +13,7 @@ function NavBar() {
 
    function handleLogOut() {
         dispatch(setCurrentUser(null))
-        history.push('./')
+        history.push('../')
     }
     return (
         <nav >

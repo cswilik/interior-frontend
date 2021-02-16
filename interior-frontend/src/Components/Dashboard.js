@@ -2,16 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import UserTripsContainer from './UserTripsContainer'
-import styled from 'styled-components';
+// import styled from 'styled-components';
+import { DashboardDiv, ProfileLink} from './style.js';
 
 function Dashboard() {
     const currentUser = useSelector(state => state.users.currentUser)
+
     
-     // if currentUser.trips.length >= 10 then currentUser.junior_badge === true
-        // if currentUser.trips.length >= 30 then currentUser.ranger_badge === true
-         // if currentUser.trips.length >= 63 then currentUser.master_badge === true
-
-
     if (currentUser) {
     return (
         <>
@@ -30,20 +27,8 @@ function Dashboard() {
     }
 }   
 
-const DashboardDiv = styled.div` 
-    margin-top: 20px;
-    font-family: ''Cantarell', serif;
-`
-// const DashboardTitle = styled.h1`
-    
-// `
-const ProfileLink = styled(Link)`
-font-family: 'Oxygen', sans-serif; 
-font-style: none;
-color: black;
-:hover { font-style: italic;
-    color: black } 
-`
+
+
 export default Dashboard;
 
 

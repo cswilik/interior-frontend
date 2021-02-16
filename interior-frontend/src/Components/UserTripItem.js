@@ -30,14 +30,12 @@ const Card = styled.div`
   width: 250px;
   margin: 10px;
   padding: 15px;
-  border: 1px solid;
-  border-radius: 10px;`
+ `
 
 const Image = styled.img`
-width: 80%;
-height: 100%;
+width: 150px;
+height: 150px;
 border-radius: 70%;
-
 `
 
 

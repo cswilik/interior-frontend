@@ -8,9 +8,9 @@ function HomePage() {
         <div >
         <Grid >
             <Grid.Row columns={16} className="home-page-header">
-            <HeaderTitle >
+            <div className="header-div" >
                 <h1 className="main-title">INTERIOR</h1>
-            </HeaderTitle>
+            </div>
             </Grid.Row>
         
              <Grid.Row columns={5}>
@@ -19,7 +19,7 @@ function HomePage() {
                      
                     {/* <h3>Learn about our beloved National Parks </h3>
                     <h4>Tell us about your travels</h4> */}
-                    <HomePageInfo> A travel app designed to track your travels to America's National Parks</HomePageInfo>
+                    <p className="header-info"> A travel app designed to track your travels to America's National Parks</p>
                     <b></b>
                     <b></b>
                     {/* <HomePageInfo> Come learn about our beloved parks and plan your next adventure!</HomePageInfo> */}
@@ -42,15 +42,4 @@ function HomePage() {
 }
 
 
-const HeaderTitle = styled.div`
-    width: 100%;
-    text-align: left;
-    padding-top: 28%
-
-`
-const HomePageInfo = styled.p`
-    font-family: 'Oxygen', sans-serif;
-    margin-bottom: 5%
-    
-`
 export default HomePage;

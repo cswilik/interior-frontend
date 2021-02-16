@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import { updateTrip, deleteTrip } from '../Redux/trip.js'
 import { Button, Modal, Form } from 'semantic-ui-react'
 
+
 function EditTrip({trip}) {
     const [open, setOpen] = useState(false)
     const [length, setLength] = useState(trip.length_of_trip)
@@ -27,7 +28,7 @@ function EditTrip({trip}) {
         img_url: file
     }
 
-    console.log(updatedTrip)
+   
 
     function handleEditTrip(event) {
         event.preventDefault();

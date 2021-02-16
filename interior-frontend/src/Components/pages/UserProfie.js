@@ -16,9 +16,11 @@ function UserProfile() {
       return (user.id === id) 
   }))
     const trips = useSelector(({trips})=> trips.trips.filter( trip => {
-       return (trip.user.id === currentUser.id) 
+       return (trip.user.id === userProfile.id) 
       } 
     ))
+
+    
      const parks = trips.map(trip => {
        return trip.park
       })

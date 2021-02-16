@@ -14,13 +14,15 @@ function Dashboard() {
 
     if (currentUser) {
     return (
+        <>
         <DashboardDiv>
-            <DashboardTitle>Welcome {currentUser.name}</DashboardTitle> 
+            <h1>Welcome {currentUser.name}</h1> 
             {(currentUser.name === null || currentUser.name === "" ? <h6 className="callout">⬇Please Fill Out Your Profile  </h6> : null)}
             <ProfileLink to='./editprofile'>Edit Profile</ProfileLink> | <ProfileLink to={`./users/${currentUser.id}`}>Public Profile</ProfileLink>
             <br></br>
-            <UserTripsContainer/>
        </DashboardDiv>
+       <UserTripsContainer/>
+       </>
     )
     
     } else {
@@ -30,11 +32,11 @@ function Dashboard() {
 
 const DashboardDiv = styled.div` 
     margin-top: 20px;
-`
-const DashboardTitle = styled.h1`
-    margin-top: 30px;
     font-family: ''Cantarell', serif;
 `
+// const DashboardTitle = styled.h1`
+    
+// `
 const ProfileLink = styled(Link)`
 font-family: 'Oxygen', sans-serif; 
 font-style: none;

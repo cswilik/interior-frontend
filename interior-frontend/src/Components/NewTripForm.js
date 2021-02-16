@@ -8,6 +8,8 @@ import { Button, Modal, Form } from 'semantic-ui-react'
 function NewTripForm({park}) {
     const [open, setOpen] = useState(false)
     const [length, setLength] = useState("")
+    const [accommodations, setAccommodations] = useState("")
+    const [tripEssentials, setTripEssentials] = useState("")
     const [review, setReview] = useState("")
     const [file, setFile] = useState(null)
     const currentUser = useSelector(state => state.users.currentUser)
@@ -20,6 +22,8 @@ function NewTripForm({park}) {
         user_id: currentUser.id,
         park_id: park.id,
         length_of_trip: length,
+        accommodations: accommodations,
+        what_to_pack: tripEssentials,
         review: review,
         likes: 0,
         img_url: file
@@ -38,6 +42,8 @@ function NewTripForm({park}) {
         form.append("park_id", newTripData.park_id)
         form.append("review", newTripData.review)
         form.append("length_of_trip", newTripData.length_of_trip)
+        form.append("accommodations", newTripData.accommodations)
+        form.append("what_to_pack", newTripData.what_to_pack)
         form.append("likes", newTripData.likes)
         form.append("img_url", newTripData.img_url)
         // form.append("api_key", "352974619581476");
@@ -77,6 +83,8 @@ function NewTripForm({park}) {
           
           {/* <Form onSubmit={handleNewTripSubmit} > */}
                 <Form.Input value ={length} fluid label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}} />
+                <Form.Input value ={accommodations} fluid label ='What were your accomodations?' placeholder='Airbnb? Backcountry camping?' onChange={(evt) => {setAccommodations(evt.target.value)}} />
+                <Form.Input value ={tripEssentials} fluid label ="What are some trip Essentials?" placeholder='sandals? rainjacket? We love to be prepared!' onChange={(evt) => {setTripEssentials(evt.target.value)}} />
                 <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}}/>
                 <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>
                 <Form.Button>Submit</Form.Button>

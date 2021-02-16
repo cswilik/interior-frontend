@@ -21,6 +21,8 @@ const tripSlice = createSlice({
             const trip = state.trips.find(trip => trip.id === action.payload.id)
             trip.length_of_trip = action.payload.length_of_trip
             trip.review = action.payload.review
+            trip.accommodations = action.payload.accommodations
+            trip.what_to_pack = action.payload.what_to_pack
             trip.img_url = action.payload.img_url
         },
         deleteTrip: (state, action) => {

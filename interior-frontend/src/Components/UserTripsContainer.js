@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import UserTripItem from './UserTripItem'
+import styled from "styled-components";
 
 
 
@@ -23,10 +24,18 @@ function UserTripsContainer() {
     return (
         <div>
             <h3>Trips I've Taken</h3>
-            {mytripElements}
+                <Wrapper>
+                    {mytripElements}
+                </Wrapper>
         </div>
         
     )
 }
+
+const Wrapper = styled.div` 
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ `
 
 export default UserTripsContainer;

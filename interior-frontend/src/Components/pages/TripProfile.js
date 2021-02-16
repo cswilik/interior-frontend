@@ -56,6 +56,8 @@ function TripProfile() {
             <Image src={tripProfile.img_url} size="medium"/>
             <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
             <p><b>Review:</b> {tripProfile.review}</p>
+            <span>Accommodations: {tripProfile.accommodations}</span>
+            <p>Trip Essentials: {tripProfile.what_to_pack}</p>
             <button onClick={handleLikes}>Likes:{tripProfile.likes}</button>
             {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)}
         </div>

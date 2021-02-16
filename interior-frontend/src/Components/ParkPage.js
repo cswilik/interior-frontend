@@ -103,6 +103,7 @@ function ParkPage() {
                             
                             <p><b> Entrance Fees:</b><br></br>${park.entrance_fees}</p>
                             <p><b>Description:</b><br></br>{park.description}</p>
+                            <p><b>Weather Info:</b><br></br>{park.weather}</p>
                     </Container>
                 </Grid.Column>
                     <Grid.Column width={4}>

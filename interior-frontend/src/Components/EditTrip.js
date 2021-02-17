@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useHistory} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import { updateTrip, deleteTrip } from '../Redux/trip.js'
-import { Button, Modal, Form } from 'semantic-ui-react'
+import {  Modal } from 'semantic-ui-react'
 
 
 function EditTrip({trip}) {
@@ -87,15 +87,18 @@ function EditTrip({trip}) {
         <h1 className="edit-info">Edit Trip</h1>
         <hr className="hr-line"></hr>
         <div className='edit-form-div'>
-            <Form onSubmit={handleEditTrip} >
-                <Form.Input value ={length} label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}}/>
-                <Form.Input value ={accommodations} fluid label ='What were your accomodations?' placeholder='Airbnb? Backcountry camping?' onChange={(evt) => {setAccommodations(evt.target.value)}} />
-                <Form.Input value ={tripEssentials} fluid label ="What are some trip Essentials?" placeholder='sandals? rainjacket? We love to be prepared!' onChange={(evt) => {setTripEssentials(evt.target.value)}} />
-                <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}} />
-                <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>    
-                <hr className="hr-line-two"></hr>           
-                 <button className="submit-button">Submit</button>
-            </Form>
+            <form onSubmit={handleEditTrip} >
+                <label ><b>How long was your stay?</b><br/><input className='form-input'type='text' value ={length}  onChange={(evt) => {setLength(evt.target.value)}}/></label><br></br>
+                <label ><b>What were your accomodations?</b><br/><input className='form-input-long' type='text' value ={accommodations}   onChange={(evt) => {setAccommodations(evt.target.value)}} /></label><br></br>
+                <label><b>What are some trip essentials?</b><br/><input className='form-input-long' type='text' value ={tripEssentials}   onChange={(evt) => {setTripEssentials(evt.target.value)}} /></label><br></br>
+                <label><b>Give us a brief overview of your trip:</b><br/><textarea className='form-input-long' type='textarea' value={review} onChange={(evt) => {setReview(evt.target.value)}} /></label><br></br>
+                <label><b>Upload one of your favorite photos:</b></label><br/>
+                <input className="form-input-img"type="file" onChange={handfileChange}/><br/><br/>  
+                {/* <hr className="hr-line-two"></hr>   */}
+                <button className="submit-button">Submit</button> <br></br>           
+            </form>
+            <br></br>
+            
             <button className="btn-danger" onClick={handleDeleteTrip}>Delete Trip</button>
         <br></br>
         

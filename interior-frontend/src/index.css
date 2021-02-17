@@ -184,7 +184,7 @@ form.ui.form {
 
 
 .hr-line {
-  border-top: 2px solid rgb(188,166,110);
+  border-top: 2px solid rgb(171,188,110);
   /* border-top: 1px dashed black; */
   margin-right: 80px;
   margin-left: 80px;
@@ -234,6 +234,21 @@ form.ui.form {
     font-size: 1em;
     cursor: pointer;
     margin-left: 6px;
+  }
+
+  .new-trip-button {
+    float: right;
+    position: relative;
+    margin-top: 5px;
+  /* display: inline-block; */
+    white-space: nowrap;
+    background: transparent;
+    border-radius: 5px;
+    border: 02px solid #121212;
+    border-width: 01px 01px 01px 01px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
   }
 
   .form-input {  

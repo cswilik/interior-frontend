@@ -3,9 +3,10 @@ import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import { newTrip } from '../Redux/trip.js'
 // import { setCurrentUser } from '../Redux/user.js'
-import { Button, Modal, Form } from 'semantic-ui-react'
+import {  Modal } from 'semantic-ui-react'
 
 function NewTripForm({park}) {
+    const [isLoading, setIsLoading] = useState(true)
     const [open, setOpen] = useState(false)
     const [length, setLength] = useState("")
     const [accommodations, setAccommodations] = useState("")
@@ -37,6 +38,7 @@ function NewTripForm({park}) {
 
     function handleNewTripSubmit(event) {
         event.preventDefault()
+        setIsLoading(false)
         const form =  new FormData()
         form.append("user_id", newTripData.user_id)
         form.append("park_id", newTripData.park_id)
@@ -56,6 +58,8 @@ function NewTripForm({park}) {
           })
           .then(r => r.json())
           .then(data => { 
+              console.log(data)
+              setIsLoading(true)
               dispatch(newTrip(data))
               history.push(`/trips/${data.id}`)
           })
@@ -68,32 +72,28 @@ function NewTripForm({park}) {
 
     
     return (
-        <Modal as={Form} onClose={() => setOpen(false)}
+        <Modal onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
         closeIcon
         style={{backgroundColor: 'rgb(236,230,214)'}}
-        trigger={<Button floated="right">Have You Visited?</Button>}
-        onSubmit={handleNewTripSubmit}
+        trigger={<button className="new-trip-button">Have You Visited?</button>}
         >
 
 
-        <h1 className="edit-info">Tell Us About Your Trip to {park.name}!</h1> 
-        <Modal.Description>
-          <br></br>
-          
-          <Form onSubmit={handleNewTripSubmit} >
-                <Form.Input value ={length} fluid label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}} />
-                <Form.Input value ={accommodations} fluid label ='What were your accomodations?' placeholder='Airbnb? Backcountry camping?' onChange={(evt) => {setAccommodations(evt.target.value)}} />
-                <Form.Input value ={tripEssentials} fluid label ="What are some trip Essentials?" placeholder='sandals? rainjacket? We love to be prepared!' onChange={(evt) => {setTripEssentials(evt.target.value)}} />
-                <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}}/>
-                <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>
-                <Form.Button>Submit</Form.Button>
-            </Form>
-        </Modal.Description>
-
-
-
+            <h1 className="edit-info">Tell Us About Your Trip to {park.name}!</h1> 
+            <hr className="hr-line"></hr>
+            <div className='edit-form-div'>
+                <form onSubmit={handleNewTripSubmit} >
+                    <label ><b>How long was your stay?</b><br/><input className='form-input'type='text' value ={length} placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}} /></label><br/>
+                    <label ><b>What were your accomodations?</b><br/><input className='form-input-long' value ={accommodations} placeholder='Airbnb? Backcountry camping?' onChange={(evt) => {setAccommodations(evt.target.value)}} /></label><br/>
+                    <label ><b>What are some trip Essentials?</b><br/><input className='form-input-long' value ={tripEssentials}  placeholder='sandals? rainjacket? We love to be prepared!' onChange={(evt) => {setTripEssentials(evt.target.value)}} /></label><br/>
+                    <label><b>Give us a brief overview of your trip:</b><br/><textarea className='form-input-long' type='textarea' value={review} placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}}/></label><br/>
+                    <input className="form-input-img" type="file" onChange={handfileChange}/>
+                    <br/>
+                    <button className="submit-button" type="submit" disabled={!isLoading}>{isLoading ? ('Submit'): ('Loading...')}</button> <br></br>  
+                </form>
+            </div>
         </Modal>
     )
 }

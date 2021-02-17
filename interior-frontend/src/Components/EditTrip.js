@@ -6,6 +6,7 @@ import {  Modal } from 'semantic-ui-react'
 
 
 function EditTrip({trip}) {
+    const [isLoading, setIsLoading] = useState(true)
     const [open, setOpen] = useState(false)
     const [length, setLength] = useState(trip.length_of_trip)
     const [review, setReview] = useState(trip.review)
@@ -32,6 +33,7 @@ function EditTrip({trip}) {
 
     function handleEditTrip(event) {
         event.preventDefault();
+        setIsLoading(false)
         const form =  new FormData()
         form.append("id", updatedTrip.id)
         form.append("user_id", updatedTrip.user_id)
@@ -48,9 +50,10 @@ function EditTrip({trip}) {
         }).then(resp => resp.json())
         .then(data => {
             console.log(data)
+            setIsLoading(true)
             dispatch(updateTrip(data))
             // history.push(`./trips/${data.id}`)
-            history.goBack()
+            history.push('../dashboard')
         })
     }
 
@@ -95,7 +98,7 @@ function EditTrip({trip}) {
                 <label><b>Upload one of your favorite photos:</b></label><br/>
                 <input className="form-input-img"type="file" onChange={handfileChange}/><br/><br/>  
                 {/* <hr className="hr-line-two"></hr>   */}
-                <button className="submit-button">Submit</button> <br></br>           
+                <button className="submit-button" type="submit" disabled={!isLoading}>{isLoading ? ('Submit'): ('Loading...')}</button> <br></br>           
             </form>
             <br></br>
             

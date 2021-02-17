@@ -81,20 +81,26 @@ function EditTrip({trip}) {
     onOpen={() => setOpen(true)}
     open={open}
     closeIcon
-    trigger={<Button floated="right">EditTrip</Button>}>
-        <Modal.Header>Edit Trip</Modal.Header>
-        <Modal.Description>
-        <Form onSubmit={handleEditTrip} >
-                <Form.Input value ={length} fluid label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}}/>
+    size='small'
+    style={{backgroundColor: 'rgb(236,230,214)'}}
+    trigger={<button className="styled-button">EditTrip</button>}>
+        <h1 className="edit-info">Edit Trip</h1>
+        <hr className="hr-line"></hr>
+        <div className='edit-form-div'>
+            <Form onSubmit={handleEditTrip} >
+                <Form.Input value ={length} label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}}/>
                 <Form.Input value ={accommodations} fluid label ='What were your accomodations?' placeholder='Airbnb? Backcountry camping?' onChange={(evt) => {setAccommodations(evt.target.value)}} />
                 <Form.Input value ={tripEssentials} fluid label ="What are some trip Essentials?" placeholder='sandals? rainjacket? We love to be prepared!' onChange={(evt) => {setTripEssentials(evt.target.value)}} />
                 <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}} />
-                <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>                <Form.Button>Submit</Form.Button>
+                <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>    
+                <hr className="hr-line-two"></hr>           
+                 <button className="submit-button">Submit</button>
             </Form>
-            <br></br>
-            <Button color="red" onClick={handleDeleteTrip}>Delete Trip</Button>
+            <button className="btn-danger" onClick={handleDeleteTrip}>Delete Trip</button>
+        <br></br>
+        
                 
-        </Modal.Description>
+        </div>
    </Modal>
    
    )

@@ -72,23 +72,24 @@ function NewTripForm({park}) {
         onOpen={() => setOpen(true)}
         open={open}
         closeIcon
+        style={{backgroundColor: 'rgb(236,230,214)'}}
         trigger={<Button floated="right">Have You Visited?</Button>}
         onSubmit={handleNewTripSubmit}
         >
 
 
-        <Modal.Header>Tell Us About Your Trip to {park.name}!</Modal.Header> 
+        <h1 className="edit-info">Tell Us About Your Trip to {park.name}!</h1> 
         <Modal.Description>
           <br></br>
           
-          {/* <Form onSubmit={handleNewTripSubmit} > */}
+          <Form onSubmit={handleNewTripSubmit} >
                 <Form.Input value ={length} fluid label ='How long was your stay?' placeholder='A week? 5 days? ' onChange={(evt) => {setLength(evt.target.value)}} />
                 <Form.Input value ={accommodations} fluid label ='What were your accomodations?' placeholder='Airbnb? Backcountry camping?' onChange={(evt) => {setAccommodations(evt.target.value)}} />
                 <Form.Input value ={tripEssentials} fluid label ="What are some trip Essentials?" placeholder='sandals? rainjacket? We love to be prepared!' onChange={(evt) => {setTripEssentials(evt.target.value)}} />
                 <Form.TextArea value={review} label ='Give us a brief overview of your trip' placeholder='Where did you stay? What were your thoughts? Did you hike,swim, etc?' onChange={(evt) => {setReview(evt.target.value)}}/>
                 <Form.Input><input type="file" onChange={handfileChange}/></Form.Input>
                 <Form.Button>Submit</Form.Button>
-            {/* </Form> */}
+            </Form>
         </Modal.Description>
 
 

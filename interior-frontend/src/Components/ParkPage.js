@@ -107,6 +107,7 @@ function ParkPage() {
                     </Container>
                 </Grid.Column>
                     <Grid.Column width={4}>
+                        <h3>See Trips to this park:</h3>
                         {tripsToPark}
                     </Grid.Column>
                 </Grid.Row>

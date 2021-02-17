@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import UserTripsContainer from './UserTripsContainer'
 // import styled from 'styled-components';
-import { DashboardDiv, ProfileLink} from './style.js';
+import { DashboardDiv} from './style.js';
 
 function Dashboard() {
     const currentUser = useSelector(state => state.users.currentUser)
@@ -12,12 +12,12 @@ function Dashboard() {
     if (currentUser) {
     return (
         <>
-        <DashboardDiv>
+        <div className="dashboard-div">
             <h1>Welcome {currentUser.name}</h1> 
             {(currentUser.name === null || currentUser.name === "" ? <h6 className="callout">⬇Please Fill Out Your Profile  </h6> : null)}
-            <ProfileLink to='./editprofile'>Edit Profile</ProfileLink> | <ProfileLink to={`./users/${currentUser.id}`}>Public Profile</ProfileLink>
+            <Link className="link-styling" to='./editprofile'>Edit Profile</Link> | <Link className="link-styling" to={`./users/${currentUser.id}`}>Public Profile</Link>
             <br></br>
-       </DashboardDiv>
+       </div>
        <UserTripsContainer/>
        </>
     )

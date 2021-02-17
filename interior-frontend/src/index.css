@@ -29,12 +29,6 @@ body {
 
 
 
-.trip-btn {
-  float: right;
-  font-size: small;
-  display: inline-block
-}
-
 .home-page-header {
   background-image: url('../src/homepage.jpeg');
   height: 40vw;
@@ -71,9 +65,10 @@ body {
 
 form.ui.form {
   font-family: 'Oxygen', sans-serif !important;
+  padding: 10px, 5px 10px, 5px  !important;
 }
 
-/* LOGIN PAGE */
+/* LOGIN PAGE/SIGNUP PAGE */
 .login-div {
     padding: 19px;
     display: flex;
@@ -109,7 +104,7 @@ form.ui.form {
 .styled-button {
   position: relative;
   margin-top: 5px;
-  display: inline-block;
+  /* display: inline-block; */
   white-space: nowrap;
   background: transparent;
   border-radius: 5px;
@@ -135,6 +130,110 @@ form.ui.form {
 
   /* END LOGIN PAGE */
 
+  /* TRIP CONTAINER STUFF */
+  .wrapper-div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center ;
+  }
+  .trip-card-div {
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    width: 350px;
+    margin: 10px;
+    padding: 15px;
+    justify-content: center;
+  }
+
+  .trip-card-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 70%;
+    transition: all 0.5s ease-in-out 0s;
+  }
+
+  .trip-card-img:hover {
+    transform: scale(1.05);
+    border-radius: 20%;
+    width: 215px;
+    height: 215px;
+  }
+
+  /*  END TRIP CONTAINER STUFF */
+
+  /* EDIT FORM/NEW TRIP FORM */
+.edit-info {
+  margin-left: 10px ;
+  font-family: 'Oxygen', sans-serif !important;
+  text-align: center  !important;
+
+}
+
+.edit-form-div {
+  padding: 10px 50px 5px 5px  !important;
+}
+
+.hr-line {
+  border-top: 1px dashed black;
+  margin-right: 80px;
+  margin-left: 80px; }
+
+  .hr-line-two {
+    border-top: 1px dashed black;
+    margin-right: 80px;
+    margin-left: 80px; 
+    margin-top: 30px;
+  }
+
+  .btn-danger {
+    /* float: left; */
+    position: relative;
+    /* display: inline-block; */
+    white-space: nowrap;
+    background: rgb(224, 168, 180);
+    border-radius: 5px;
+    border: 02px solid #121212;
+    border-width: 01px 01px 01px 01px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+
+  .submit-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 5px;
+    white-space: nowrap;
+    background: transparent;
+    border-radius: 5px;
+    border: 02px solid #121212;
+    border-width: 01px 01px 01px 01px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  div.ui.input {  
+    background-color:  rgb(236,230,214) !important;
+    border-top: none !important;
+    color: black;
+    border-radius: 0px;
+    font-family: 'Oxygen', sans-serif;
+    border-bottom: 1px solid black
+  }
+
+  /* div.ui.input:focus {
+    background: transparent !important;
+  } */
+
+ /* END EDIT FORM/NEW TRIP FORM */
+
+  .dashboard-div {
+    margin-top: 20px;
+    font-family: ''Cantarell', serif;'
+  }
 
 .map-div {
   margin-top: 2%;

@@ -2,41 +2,25 @@ import React from 'react'
 // import { Image} from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import EditTrip from './EditTrip'
-import styled from "styled-components";
+
 
 function UserTripItem({trip}) {
 
-    // size='small' circular verticalAlign='bottom'
     
     return (
-        <div>
-            <Card>
-                <Link to={`../trips/${trip.id}`}><Image src={trip.img_url} alt={trip.park.name} /></Link>
-                <span>{trip.park.name}</span>
-                <h5>Length of Trip: {trip.length_of_trip}</h5>
+            <div className="trip-card-div">
+                <Link to={`../trips/${trip.id}`}><img className="trip-card-img" src={trip.img_url} alt={trip.park.name} /></Link>
+                <h2>{trip.park.name}</h2>
+                <p>Length of Trip: {trip.length_of_trip}</p>
                 <p>{trip.review}</p>
                 <span>Likes: {trip.likes}</span>
                 <EditTrip trip={trip}/>     
                 {/* <Divider/> */}
-            </Card>
-        </div>
+            </div>
     )
 }
 
-const Card = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 350px;
-  width: 250px;
-  margin: 10px;
-  padding: 15px;
- `
 
-const Image = styled.img`
-width: 150px;
-height: 150px;
-border-radius: 70%;
-`
 
 
 export default UserTripItem;

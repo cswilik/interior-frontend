@@ -33,10 +33,10 @@ function UserTripsContainer() {
 
     return (
         <div>
-            <h3>Trips I've Taken</h3>
-                <Wrapper>
+            {/* <h3>Trips I've Taken</h3> */}
+                <div className="wrapper-div">
                     {mytripElements}
-                </Wrapper>
+                </div>
         </div>
         
     )

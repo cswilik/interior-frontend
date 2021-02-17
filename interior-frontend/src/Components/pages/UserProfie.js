@@ -50,7 +50,7 @@ function UserProfile() {
             <h4><b>Bio:</b> {userProfile.bio}</h4>
             <h4><b>{userProfile.name}'s Favorite Park:</b> {userProfile.fav_park}</h4>
             
-            <p>{userProfile.name} has visited {parks.length} park(s) so far!</p>
+            <h3>{userProfile.name} has visited {parks.length} park(s) so far!</h3>
           {currentUser.id === userProfile.id ? (<UserTripsContainer/>) : (
             userTrips
           )}

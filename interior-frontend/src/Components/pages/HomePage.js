@@ -1,6 +1,5 @@
 import React from 'react'
 import { Header, Container, Grid, Icon, Menu} from 'semantic-ui-react'
-import styled from 'styled-components';
 
 
 function HomePage() {

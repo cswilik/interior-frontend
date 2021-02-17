@@ -292,10 +292,139 @@ form.ui.form {
     }
  /* END EDIT FORM/NEW TRIP FORM */
 
+ /* DASHBOARD */
+
   .dashboard-div {
     margin-top: 20px;
-    font-family: ''Cantarell', serif;'
+    /* font-family: ''Cantarell', serif; */
+    /* font-family: 'Oxygen', sans-serif  !important; */
   }
+
+  .welcome-title {
+    font-size: 60px;
+    letter-spacing: 0.07em;
+    font-family: 'Oxygen', sans-serif;
+  }
+
+ 
+
+  /* END DASHBOARD */
+
+  /* PROFILE PAGE */
+
+  .profile-div {
+    width: 60%;
+    height: 30vh;
+    padding: 40px;
+    margin: auto;
+    border-top: 2px dotted black;
+    vertical-align: auto;
+    
+    
+  }
+
+  .junior-badge-img {
+    max-height: 19vw;
+    max-width: 24vh;
+    background: transparent;
+    border-radius: 70%;
+    /* box-shadow: 0 0 4px 0 rgb(171,188,110), 0 0 0 0 rgb(171,188,110); */
+  }
+
+  .park-badge-img {
+    max-height: 19vw;
+    max-width: 24vh;
+    background: transparent;
+    border-radius: 70%;
+    /* box-shadow: 0 0 4px 0 rgb(171,188,110), 0 0 0 0 rgb(171,188,110); */
+  }
+
+  .img-badge-div {
+    margin: 0 10px 0 10px;
+    max-width: 26vw;
+    max-height: 40vh;
+    box-shadow: 0 0 4px 0 rgb(171,188,110), 0 0 0 0 rgb(171,188,110);
+  }
+
+  .badges-div {
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    height: 40vh;
+    margin: auto;
+  }
+
+  /* END PROFILE PAGE */
+
+
+  /* TRIP PAGE */
+
+  .trip-page-div {
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    margin: auto;
+    width: 100%;
+    /* border: 3px solid green; */
+    padding: 10px;
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+  }
+
+  .trip-img-div {
+    display: flex;
+    margin-right: 15px;
+   
+  }
+
+  .trip-info-div {
+    margin-top: 10%;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    padding: 10px;
+    text-align: left;
+  }
+
+  .trip-title {
+    font-size: 30px;
+    letter-spacing: 0.07em;
+    font-family: 'Oxygen', sans-serif;
+  }
+
+  .trip-img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 20px;
+    position: relative;
+    display: block;
+    width: 50%;
+    max-height: 60vh;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19) */
+  }
+
+  .likes-styled-button {
+    position: relative;
+    margin-top: 5px;
+    /* display: inline-block; */
+    white-space: nowrap;
+    background: transparent;
+    border-radius: 5px;
+    border: 02px solid #121212;
+    border-width: 01px 01px 01px 01px;
+    padding: 5px 10px 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+  }
+
+  .likes-styled-button:focus {
+    outline: none !important;
+  }
+
+  /* END TRIP PAGE */
+
+
 
 .map-div {
   margin-top: 2%;

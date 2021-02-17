@@ -50,16 +50,21 @@ function TripProfile() {
       if (tripProfile && user) {
         
     return (
-        <div>
-            <h1>{user.name}'s trip to {tripProfile.park.name}</h1>
-            <Link to={`../users/${tripProfile.user.id}`}>{user.name}'s  Profile</Link>
-            <Image src={tripProfile.img_url} size="medium"/>
-            <h4>Length of Trip: {tripProfile.length_of_trip}</h4>
-            <p><b>Review:</b> {tripProfile.review}</p>
-            <span><b>Accommodations:</b> {tripProfile.accommodations}</span>
-            <p><b>Trip Essentials:</b> {tripProfile.what_to_pack}</p>
-            <button onClick={handleLikes}>Likes:{tripProfile.likes}</button><br></br>
-            {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)}
+        <div className="trip-page-div">
+            <h1 className="trip-title">{user.name}'s trip to {tripProfile.park.name}</h1>
+            <Link className="link-styling"to={`../users/${tripProfile.user.id}`}>{user.name}'s  Profile</Link>
+            <div className= "trip-img-div">
+                <img className="trip-img" src={tripProfile.img_url} alt={tripProfile.park.name}/>
+                <div className="trip-info-div">
+                <p><b>Length of Trip:</b>{tripProfile.length_of_trip}</p>
+                <p><b>Review:</b> {tripProfile.review}</p>
+                <p><b>Accommodations:</b> {tripProfile.accommodations}</p>
+                <p><b>Trip Essentials:</b> {tripProfile.what_to_pack}</p>
+                <button className="likes-styled-button" onClick={handleLikes}>Likes:{tripProfile.likes}</button><br></br>
+                </div>
+            </div>
+                <br></br>
+                {currentUser.id === tripProfile.user.id ? (<EditTrip trip = {tripProfile}/> ) : (null)}
         </div>
     )} else {
         return (<h4>Is Loading...</h4>)

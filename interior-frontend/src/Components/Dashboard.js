@@ -13,7 +13,7 @@ function Dashboard() {
     return (
         <>
         <div className="dashboard-div">
-            <h1>Welcome {currentUser.name}</h1> 
+            <h1 className="welcome-title">Welcome {currentUser.name}</h1> 
             {(currentUser.name === null || currentUser.name === "" ? <h6 className="callout">⬇Please Fill Out Your Profile  </h6> : null)}
             <Link className="link-styling" to='./editprofile'>Edit Profile</Link> | <Link className="link-styling" to={`./users/${currentUser.id}`}>Public Profile</Link>
             <br></br>

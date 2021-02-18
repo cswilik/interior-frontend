@@ -58,6 +58,7 @@ body {
 
 .park-title {
   color: white !important;
+  font-family: 'Cantarell', serif;
   margin-top: 4em !important;
   font-size: 60px!important;
   line-height: 60px !important;
@@ -216,14 +217,11 @@ form.ui.form {
 
   .btn-danger:hover {
     transform: scale(1.05);
-    background: lightgray;
+    background: rgb(223, 136, 136);
 
   }
 
   .submit-button {
-    /* display: block;
-    position: relative;
-    float: left; */
     margin-top: 5px;
     white-space: nowrap;
     background: transparent;
@@ -249,6 +247,10 @@ form.ui.form {
     padding: 5px 10px 5px 10px;
     font-size: 1em;
     cursor: pointer;
+  }
+
+  .new-trip-button:hover {
+    font-style: italic;
   }
 
   .form-input {  
@@ -306,9 +308,11 @@ form.ui.form {
     font-family: 'Oxygen', sans-serif;
   }
 
- 
 
   /* END DASHBOARD */
+
+
+
 
   /* PROFILE PAGE */
 
@@ -319,8 +323,6 @@ form.ui.form {
     margin: auto;
     border-top: 2px dotted black;
     vertical-align: auto;
-    
-    
   }
 
   .junior-badge-img {
@@ -382,6 +384,10 @@ form.ui.form {
   }
 
   /* END PROFILE PAGE */
+
+
+
+
 
 
   /* TRIP PAGE */
@@ -453,6 +459,9 @@ form.ui.form {
 
   /* END TRIP PAGE */
 
+
+
+
   /* RETAIL PAGE */
 
   .retail-div {
@@ -476,7 +485,51 @@ form.ui.form {
     border: 1px solid black;
   }
 
+/* END RETAIL PAGE */
 
+
+
+
+
+
+/* PARK CONTAINER/PARK ITEMS  */
+.search-bar {
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-left: 16px;
+  font-size: 17px;
+  display: block;
+  font-family: 'Oxygen', sans-serif;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.park-item-div {
+  font-family: 'Oxygen', sans-serif !important
+}
+
+.park-link-styling {
+  font-family: 'Oxygen', sans-serif; 
+  font-style: none;
+  color: rgb(18, 92, 31) ;
+}
+
+.park-link-styling:hover { font-style: italic;
+  color: rgb(18, 92, 31) }
+
+.park-location {
+  font-family: 'Oxygen', sans-serif; 
+  margin-top: 3px;
+  opacity: 0.9;
+  color:rgb(188,166,110)
+}
+
+.park-info {
+  font-family: 'Oxygen', sans-serif !important; 
+}
 
 .map-div {
   margin-top: 2%;
@@ -488,4 +541,15 @@ form.ui.form {
   
 }
 
+.park-trips-img {
+  max-width: 100%;
+  max-height: 70%;
+  margin-bottom: 10px;
+  border-radius: 10%;
+  /* border: 1px solid rgb(188,166,110); */
+}
+
+.park-trips-img:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 20px 20px 0 rgba(0, 0, 0, 0.19)
+}
 

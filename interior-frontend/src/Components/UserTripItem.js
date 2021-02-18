@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Image} from 'semantic-ui-react'
+
 import { Link } from 'react-router-dom'
 import EditTrip from './EditTrip'
 
@@ -15,7 +15,6 @@ function UserTripItem({trip}) {
                 <p>{trip.review}</p>
                 <span>Likes: {trip.likes}</span>
                 <EditTrip trip={trip}/>     
-                {/* <Divider/> */}
             </div>
     )
 }

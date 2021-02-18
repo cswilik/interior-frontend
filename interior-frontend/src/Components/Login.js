@@ -2,7 +2,7 @@ import React, { useState} from 'react'
 import { setCurrentUser } from '../Redux/user'
 import { useDispatch} from 'react-redux'
 import {useHistory, Link} from 'react-router-dom'
-import styled from 'styled-components';
+
 
 function Login() {
     const [email, setEmail] = useState("")

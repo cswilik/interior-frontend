@@ -16,7 +16,7 @@ import ParkPage from './ParkPage';
 import RetailPage from './pages/RetailPage';
 import Login from './Login'
 import Signup from './Signup'
-import styled from 'styled-components';
+
 
 function App() {
   const dispatch = useDispatch()

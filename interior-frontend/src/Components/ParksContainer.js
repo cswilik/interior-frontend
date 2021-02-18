@@ -1,7 +1,6 @@
 import  React, { useState } from 'react'
 import ParkItem from "./ParkItem"
 import { useSelector} from 'react-redux'
-
 import { Grid, Input } from 'semantic-ui-react'
 
 function ParksContainer() {
@@ -17,8 +16,8 @@ function ParksContainer() {
 
     
     const parkElements = filteredParks.map(park => {
-        return (<Grid.Column key={park.id}>
-        <ParkItem key={park.id} park={park}/>
+        return (<Grid.Column   key={park.id}>
+        <ParkItem  key={park.id} park={park}/>
         </Grid.Column>)
     })
 
@@ -32,10 +31,11 @@ function ParksContainer() {
 
     return( 
         <div>
-            <h1>Explore The Parks</h1>
-            <Input value={search} placeholder="Search for parks..." onChange={(evt) => {handleSearch(evt)}} />
-            <Grid columns={2} divided>
-            <Grid.Row>
+            <h1 className="welcome-title">Explore The Parks</h1>
+            <input className="search-bar"type="search" value={search} placeholder="Search for parks..." onChange={(evt) => {handleSearch(evt)}} />
+            <br/>
+            <Grid columns={3} divided >
+            <Grid.Row >
                {parkElements}
             </Grid.Row>
             </Grid>

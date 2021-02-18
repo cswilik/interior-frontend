@@ -2,7 +2,6 @@ import React from 'react'
 import { useParams, Link} from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
 import  { addLikes } from '../../Redux/trip.js'
-import { Image } from 'semantic-ui-react'
 import EditTrip from '../EditTrip.js';
 
 

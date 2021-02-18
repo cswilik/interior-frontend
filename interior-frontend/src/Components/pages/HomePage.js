@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, Container, Grid, Icon, Menu} from 'semantic-ui-react'
+import { Container, Grid, Icon, Menu} from 'semantic-ui-react'
 
 
 function HomePage() {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import UserTripsContainer from './UserTripsContainer'
 // import styled from 'styled-components';
-import { DashboardDiv} from './style.js';
+
 
 function Dashboard() {
     const currentUser = useSelector(state => state.users.currentUser)

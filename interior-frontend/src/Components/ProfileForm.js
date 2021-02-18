@@ -1,6 +1,5 @@
 import React, { useState} from 'react'
 import { useHistory } from 'react-router-dom'
-import { Form } from 'semantic-ui-react'
 import {useSelector, useDispatch} from 'react-redux'
 import {updatedUsers} from '../Redux/user'
 
@@ -41,12 +40,9 @@ function ProfileForm() {
         <div className="login-div">
             <h1 className="edit-info">Tell Us About Yourself</h1>
             <form onSubmit={handleSubmit}>
-            <label ><b>Name:</b><br/><input className="login-details" type='text' value ={name} placeholder='Name' onChange={evt => {setUserName(evt.target.value)}}/></label><br></br>
-            <label ><b>Bio</b><br/><textarea  className="login-details" type='text' value={bio} placeholder='Bio' onChange={evt => {setUserBio(evt.target.value)}}/></label><br></br>
-            <label ><b>Whats your Favorite Park?</b><br/><input className="login-details" type='text' value={favPark}  placeholder='whats your favorite park?' onChange={evt => {setFavPark(evt.target.value)}}/></label><br></br>
-
-                {/* <Form.TextArea value={bio} label ='Bio' placeholder='Bio' onChange={evt => {setUserBio(evt.target.value)}}/> */}
-                {/* <Form.Input value={favPark} fluid label ='Favorite park' placeholder='whats your favorite park?'onChange={evt => {setFavPark(evt.target.value)}}/> */}
+                <label ><b>Name:</b><br/><input className="login-details" type='text' value ={name} placeholder='Name' onChange={evt => {setUserName(evt.target.value)}}/></label><br></br>
+                <label ><b>Bio</b><br/><textarea  className="login-details" type='text' value={bio} placeholder='Bio' onChange={evt => {setUserBio(evt.target.value)}}/></label><br></br>
+                <label ><b>Whats your Favorite Park?</b><br/><input className="login-details" type='text' value={favPark}  placeholder='whats your favorite park?' onChange={evt => {setFavPark(evt.target.value)}}/></label><br></br>
                 <button className="styled-button">Submit</button>
             </form>
         </div>

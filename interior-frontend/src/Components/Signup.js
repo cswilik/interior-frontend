@@ -46,11 +46,6 @@ function Signup() {
             <button className="styled-button">Create an Account</button>
             </form>
             <br></br>
-            {/* <Form onSubmit={signup}>
-                <Form.Input value ={email} fluid label ='Email' placeholder='Enter your email address' onChange={(evt) => setEmail(evt.target.value)} />
-                <Form.Input type= 'password' value ={password} fluid label = "Password" placeholder='Create your password' onChange={(evt) => setPassword(evt.target.value)}></Form.Input>
-                <Form.Button>Submit</Form.Button>
-            </Form> */}
             <Link className="link-styling" exact="true" to="./login">Already have an account?</Link>
         </div>
     )

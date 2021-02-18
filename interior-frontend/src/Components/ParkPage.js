@@ -19,7 +19,7 @@ function ParkPage() {
         return (park.id === id) 
     }))
     const tripsToPark = park.trips.map(trip => {
-        return (<><Link key={trip.id} exact='true' to={`../trips/${trip.id}`}><Image key={trip.id} src={trip.img_url} size='medium'/><br></br></Link></> )
+        return (<><Link key={trip.id} exact='true' to={`../trips/${trip.id}`}><img className="park-trips-img" alt="users trips to this park"key={trip.id} src={trip.img_url} size='medium'/><br></br></Link></> )
     })
     const currentUser = useSelector(({users}) => users.currentUser)
     const currentUserPark = currentUser.trips.find(trip => {
@@ -32,7 +32,7 @@ function ParkPage() {
     }
     
 
-    // Similar to componentDidMount and componentDidUpdate:
+
    useEffect(() => {
     
        fetch('http://localhost:3000/login', {
@@ -82,7 +82,7 @@ function ParkPage() {
                 <Grid.Column width={12}>
                     <Container textAlign= "left">
                         
-                        <Header as='h2'>
+                        <Header className="park-info" as='h2' >
                          {currentUserPark ? (<Button as={Link} exact to={`../trips/${currentUserPark.id}`} floated='right'>See Your Trip</Button>) : (<NewTripForm park ={park}/>)  }
                     
                         
@@ -99,15 +99,16 @@ function ParkPage() {
                         </Map>
                         </div>
                         <br></br>
-                        </Header>
+                        </Header >
                             
-                            <p><b> Entrance Fees:</b><br></br>${park.entrance_fees}</p>
-                            <p><b>Description:</b><br></br>{park.description}</p>
-                            <p><b>Weather Info:</b><br></br>{park.weather}</p>
+                            <p className="park-info"><b> Entrance Fees:</b><br></br>${park.entrance_fees}</p>
+                            <p className="park-info"><b>Description:</b><br></br>{park.description}</p>
+                            <p className="park-info"><b>Weather Info:</b><br></br>{park.weather}</p>
                     </Container>
                 </Grid.Column>
                     <Grid.Column width={4}>
-                        <h3>See Trips to this park:</h3>
+                        <h3 className="park-info">See Trips to this park:</h3>
+                        {(tripsToPark.length === 0) ? (<p>No one has visited this park yet!</p>): (null)}
                         {tripsToPark}
                     </Grid.Column>
                 </Grid.Row>

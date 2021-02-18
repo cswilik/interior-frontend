@@ -20,7 +20,7 @@ function TripProfile() {
            return (user.id === tripProfile.user.id)
        } else return ""
     }))
-    // const userRef = useRef(user)
+    
     
     
 
@@ -40,8 +40,8 @@ function TripProfile() {
             })
             .then(r => r.json())
             .then(data => {
-                console.log(data)
                 dispatch(addLikes(data))
+                
             })       
         
       }

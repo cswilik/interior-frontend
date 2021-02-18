@@ -29,19 +29,23 @@ function UserProfile() {
   
  
  
- 
+  //  const userTripsNew = userProfile.trips.map(trip => {
+  //      const matchedTrip = trips.find(tripTwo => {
+  //          return tripTwo.id === trip.id
+  //     })
+  //     return matchedTrip
+  // })
+
+  // console.log(userTripsNew)
    
 
   const userTrips = userProfile.trips.map(trip => {
     return (
       <div className="trip-card-div">
-        {/* <Container textAlign='left'> */}
         <Link key={trip.id} to={`../../trips/${trip.id}`}><img  className="trip-card-img" src={trip.img_url} alt="trip"/></Link>
-        <h5>{trip.length_of_trip}</h5>
+        <p>Length of Trip: {trip.length_of_trip}</p>
         <p>{trip.review}</p>
         <span>Likes: {trip.likes}</span>
-        {/* <Divider/>
-        </Container> */}
       </div>
       
     )
@@ -60,9 +64,9 @@ function UserProfile() {
               {(parks.length <= 2) ? (<div className="no-badges-div"><h4><i>***Visit more parks to earn badges***</i></h4></div>) : (null)}
               {(parks.length >= 3) ? (<div className="img-badge-div"><img className="junior-badge-img" src={Image} alt="junior badge"/>
               <p>You've visited more than 3 parks! You earned a junior ranger badge!</p></div>) : null}
-              {(parks.length >= 7) ? (<div className="img-badge-div"><img className="park-badge-img" src={ImageTwo} alt="park ranger badge"/>
+              {(parks.length >= 4) ? (<div className="img-badge-div"><img className="park-badge-img" src={ImageTwo} alt="park ranger badge"/>
               <p>Wow, you visited 7 parks! You earned a park ranger badge!</p></div>) : null}
-              {(parks.length >= 10) ? (<div className="img-badge-div"><img className="ranger-badge-img" src={ImageThree} alt="ultimate park ranger"/>
+              {(parks.length >= 4) ? (<div className="img-badge-div"><img className="ranger-badge-img" src={ImageThree} alt="ultimate park ranger"/>
               <p>Holy Yosemite! You have visited over 10 parks!!! Congrats, you earned the </p></div>) : null}
               </div>
             

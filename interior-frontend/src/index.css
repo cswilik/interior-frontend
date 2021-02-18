@@ -148,6 +148,7 @@ form.ui.form {
   }
 
   .trip-card-img {
+    object-fit: cover;
     width: 150px;
     height: 150px;
     border-radius: 70%;

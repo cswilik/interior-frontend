@@ -324,19 +324,27 @@ form.ui.form {
   }
 
   .junior-badge-img {
-    max-height: 19vw;
-    max-width: 24vh;
+    max-height: 18vh;
+    max-width: 20vw;
+    background: transparent;
+    border-radius: 70%;
+    margin-top: 7px;
+    /* box-shadow: 0 0 4px 0 rgb(171,188,110), 0 0 0 0 rgb(171,188,110); */
+  }
+
+  .park-badge-img {
+    max-height: 22vh;
+    max-width: 21vw;
     background: transparent;
     border-radius: 70%;
     /* box-shadow: 0 0 4px 0 rgb(171,188,110), 0 0 0 0 rgb(171,188,110); */
   }
 
-  .park-badge-img {
-    max-height: 19vw;
-    max-width: 24vh;
+  .ranger-badge-img {
+    max-height: 21vh;
+    max-width: 25vw;
     background: transparent;
     border-radius: 70%;
-    /* box-shadow: 0 0 4px 0 rgb(171,188,110), 0 0 0 0 rgb(171,188,110); */
   }
 
   .img-badge-div {
@@ -350,8 +358,27 @@ form.ui.form {
     display: flex;
     flex-direction: row;
     width: 80vw;
-    height: 40vh;
+    height: 35vh;
     margin: auto;
+  }
+
+  .no-badges-div {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 80vw;
+    height: 40vh;
+    /* margin: auto; */
+    justify-content: center;
+    color: green;
+    font-family: 'Cantarell', serif; 
+  }
+
+  .badges-info {
+    font-size: 40px;
+    color: green;
+    font-family: 'Cantarell', serif; 
+    
   }
 
   /* END PROFILE PAGE */
@@ -391,11 +418,12 @@ form.ui.form {
   }
 
   .trip-img {
+    object-fit: cover;
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 10px;
     margin-right: 20px;
-    position: relative;
+    /* position: relative; */
     display: block;
     width: 50%;
     max-height: 60vh;
@@ -422,7 +450,31 @@ form.ui.form {
     outline: none !important;
   }
 
+
   /* END TRIP PAGE */
+
+  /* RETAIL PAGE */
+
+  .retail-div {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Oxygen', sans-serif;
+  }
+
+  .parks-project-div {
+    text-align: center;
+    width: 60vw;
+  }
+
+  .project-img {
+    width: 30vw;
+    height: 60vh;
+    border: 1px solid black;
+  }
 
 
 

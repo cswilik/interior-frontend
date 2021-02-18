@@ -60,7 +60,7 @@ function TripProfile() {
                 <p><b>Review:</b> {tripProfile.review}</p>
                 <p><b>Accommodations:</b> {tripProfile.accommodations}</p>
                 <p><b>Trip Essentials:</b> {tripProfile.what_to_pack}</p>
-                <button className="likes-styled-button" onClick={handleLikes}>Likes:{tripProfile.likes}</button><br></br>
+                <button className="likes-styled-button" onClick={handleLikes}>Likes: {tripProfile.likes}</button><br></br>
                 </div>
             </div>
                 <br></br>

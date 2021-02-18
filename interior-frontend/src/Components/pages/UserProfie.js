@@ -29,23 +29,23 @@ function UserProfile() {
   
  
  
-  //  const userTripsNew = userProfile.trips.map(trip => {
-  //      const matchedTrip = trips.find(tripTwo => {
-  //          return tripTwo.id === trip.id
-  //     })
-  //     return matchedTrip
-  // })
+  
+      // const tripLikes = trips.map(trip => {
+      //   return trip.likes
+      // })
 
-  // console.log(userTripsNew)
    
 
   const userTrips = userProfile.trips.map(trip => {
+    const likesTrips = trips.find(tripTwo => tripTwo.id === trip.id)
+    // console.log(likesTrips.likes)
+  
     return (
       <div className="trip-card-div">
         <Link key={trip.id} to={`../../trips/${trip.id}`}><img  className="trip-card-img" src={trip.img_url} alt="trip"/></Link>
         <p>Length of Trip: {trip.length_of_trip}</p>
         <p>{trip.review}</p>
-        <span>Likes: {trip.likes}</span>
+        <span>Likes: {likesTrips.likes}</span>
       </div>
       
     )

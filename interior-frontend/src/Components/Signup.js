@@ -21,17 +21,18 @@ function Signup() {
 
     function signup(evt) {
         evt.preventDefault()
-        fetch("http://localhost:3000/users", {
-         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData)
-      })
+        fetch("http://localhost:3000/signup", {
+            method: "POST", 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
       .then(r => r.json())
       .then(data => {
           dispatch(newUser(data))
-          dispatch(setCurrentUser(data))
+          dispatch(setCurrentUser(data.user))
+          localStorage.setItem("token", data.token)
           history.push('./dashboard')
 
     })

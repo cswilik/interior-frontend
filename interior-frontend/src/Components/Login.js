@@ -6,26 +6,31 @@ import {useHistory, Link} from 'react-router-dom'
 
 function Login() {
     const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
     const dispatch = useDispatch()
     const history = useHistory()
 
     const loginInfo = {
-        email: email
+        email: email,
+        password: password
     }
 
 
 
-    function login() {
+    function login(e) {
+        e.preventDefault()
         fetch('http://localhost:3000/login', {
-            method: "POST",
+            method: "POST", 
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(loginInfo)
         })
         .then(r => r.json())
-        .then(userData => dispatch(setCurrentUser(userData)))
-        history.push('./dashboard')
+        .then(userData => { dispatch(setCurrentUser(userData.user))
+            localStorage.setItem("token", userData.token)
+            history.push('./dashboard')
+        })
     }
 
     
@@ -37,7 +42,7 @@ function Login() {
             <h1 className="login-info">Welcome Back</h1>
             <form onSubmit={login}>
                 <label >Email:<br/><input className="login-details" type="email" placeholder="enter email" name="email" value ={email} onChange={(evt) => setEmail(evt.target.value)}/></label>
-                <label >Password:<br/><input className="login-details" type="password" placeholder="enter password" name="password"/></label>
+                <label >Password:<br/><input className="login-details" type="password" placeholder="enter password" name="password" value={password} onChange={(evt) => setPassword(evt.target.value)} /></label>
                 <br></br>
                 <button className="styled-button">Login</button>
                 {/* <Form.Input value ={email} fluid label ='Email' placeholder='Enter your email address' onChange={(evt) => setEmail(evt.target.value)} />

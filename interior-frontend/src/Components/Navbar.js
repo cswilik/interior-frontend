@@ -13,6 +13,7 @@ function NavBar() {
 
    function handleLogOut() {
         dispatch(setCurrentUser(null))
+        localStorage.removeItem("token");
         history.push('../')
     }
     return (

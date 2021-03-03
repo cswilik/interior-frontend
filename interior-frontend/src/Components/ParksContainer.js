@@ -1,7 +1,7 @@
 import  React, { useState } from 'react'
 import ParkItem from "./ParkItem"
 import { useSelector} from 'react-redux'
-import { Grid, Input } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 
 function ParksContainer() {
     

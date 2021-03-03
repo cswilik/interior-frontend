@@ -23,7 +23,7 @@ function ProfileForm() {
    function handleSubmit(evt) {
        evt.preventDefault()
         fetch(`http://localhost:3000/users/${currentUser.id}`, {
-            method: "PATCH",
+            method: "POST", 
             headers: {
                 'Content-Type': 'application/json'
             },

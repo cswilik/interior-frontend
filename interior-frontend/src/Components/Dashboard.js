@@ -8,6 +8,7 @@ import UserTripsContainer from './UserTripsContainer'
 function Dashboard() {
     const currentUser = useSelector(state => state.users.currentUser)
 
+
     
     if (currentUser) {
     return (

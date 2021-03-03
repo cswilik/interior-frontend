@@ -1,8 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Grid, Icon, Menu} from 'semantic-ui-react'
+import { setCurrentUser } from '../../Redux/user'
+import { useDispatch} from 'react-redux'
 
 
 function HomePage() {
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        fetch("http://localhost:3000/dashboard", {
+            method: 'GET',
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then(r => r.json())
+        .then(data => dispatch(setCurrentUser(data)))
+    }, [dispatch])
+
+
+
+
+
+
     return (
         <div >
         <Grid >

@@ -21,18 +21,21 @@ function ProfileForm() {
 
 
    function handleSubmit(evt) {
+        const token = localStorage.getItem("token")
        evt.preventDefault()
         fetch(`http://localhost:3000/users/${currentUser.id}`, {
-            method: "POST", 
+            method: "PATCH", 
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(profileData)
         })
         .then(r => r.json())
         .then(updatedUser => {
             dispatch(updatedUsers(updatedUser))
-            history.push('/dashboard')})
+            history.push('/dashboard')
+        })
 
     }
 

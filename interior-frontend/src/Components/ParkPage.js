@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams, Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux'
-import { Header, Container, Grid, Image, Button} from 'semantic-ui-react'
+import { Header, Container, Grid, Button} from 'semantic-ui-react'
 import NewTripForm from './NewTripForm'
 import { setCurrentUser } from '../Redux/user';
 import { addParks } from '../Redux/park';
@@ -22,31 +22,25 @@ function ParkPage() {
         return (<><Link key={trip.id} exact='true' to={`../trips/${trip.id}`}><img className="park-trips-img" alt="users trips to this park"key={trip.id} src={trip.img_url} size='medium'/><br></br></Link></> )
     })
     const currentUser = useSelector(({users}) => users.currentUser)
+    console.log(currentUser.trips)
     const currentUserPark = currentUser.trips.find(trip => {
         return (trip.park_id === park.id)
     })
     const trips = useSelector(({trips}) => (trips.trips))
      
-    const currentUserData = {
-        email: currentUser.email
-    }
-    
+   
 
-
-   useEffect(() => {
-    
-       fetch('http://localhost:3000/login', {
-           method: "POST",
-           headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(currentUserData)
-       })
-       .then(r => r.json())
-       .then(data => {
-            dispatch(setCurrentUser(data))
-       })
-   }, [trips, dispatch])
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+        fetch("http://localhost:3000/dashboard", {
+            method: 'GET',
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        })
+        .then(r => r.json())
+        .then(data => dispatch(setCurrentUser(data)))
+    }, [dispatch])
 
 
    useEffect(() => {
@@ -83,7 +77,7 @@ function ParkPage() {
                     <Container textAlign= "left">
                         
                         <Header className="park-info" as='h2' >
-                         {currentUserPark ? (<Button as={Link} exact to={`../trips/${currentUserPark.id}`} floated='right'>See Your Trip</Button>) : (<NewTripForm park ={park}/>)  }
+                         {currentUserPark ? (<Button className="new-trip-button" as={Link} exact='true' to={`../trips/${currentUserPark.id}`} floated='right'>See Your Trip</Button>) : (<NewTripForm park ={park}/>)  }
                     
                         
                         About this park:<Header sub>{park.location}</Header>

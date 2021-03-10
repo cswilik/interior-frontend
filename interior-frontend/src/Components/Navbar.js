@@ -20,15 +20,16 @@ function NavBar() {
         <nav >
             <Menu  className='nav-bar'>
                 <NavLink exact to='/'><Icon name='big tree' color='black' /></NavLink>
-            {/* <Menu.Item as={ NavLink }  to='./'><Icon name='big tree' /></Menu.Item> */}
                 
-                <Menu.Item position='right'as={NavLink} exact to='/dashboard' className='main-icon'> Dashboard</Menu.Item>
-                <Menu.Item as={NavLink} exact to='/exploretheparks'> Explore the Parks</Menu.Item>
-                <Menu.Item as={NavLink} exact to="/retail">Retail</Menu.Item>
                 {currentUser ? (
+                    <>
+                    <Menu.Item position='right'as={NavLink} exact to='/dashboard' className='main-icon'> Dashboard</Menu.Item>
+                    <Menu.Item as={NavLink} exact to='/exploretheparks'> Explore the Parks</Menu.Item>
+                    <Menu.Item as={NavLink} exact to="/retail">Retail</Menu.Item>
                     <Menu.Item onClick={handleLogOut}>Logout</Menu.Item>
+                    </>
                 ) : (
-                    <Menu.Item as={NavLink} exact to='/login'>Login</Menu.Item>
+                    <Menu.Item position='right' as={NavLink} exact to='/login'>Login</Menu.Item>
                 )}
                 
             </Menu>

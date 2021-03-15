@@ -1,4 +1,4 @@
-# Interior App
+# Interior 
 Interior is a form of travel app that allows users to track and share their trips to America's National Parks. 
 The [back-end](https://github.com/cswilik/interior-backend) was built with Ruby on Rails and was seeded with the NPS API. The front-end was built with React/Redux and custom CSS.
 

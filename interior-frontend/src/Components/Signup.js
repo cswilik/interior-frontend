@@ -9,7 +9,7 @@ function Signup() {
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
     const history = useHistory()
-   
+    const apiURL = 'https://interiornps.herokuapp.com/'
 
     const userData = {
         email: email,
@@ -21,7 +21,7 @@ function Signup() {
 
     function signup(evt) {
         evt.preventDefault()
-        fetch("http://localhost:3000/signup", {
+        fetch(`${apiURL}signup`, {
             method: "POST", 
             headers: {
                 'Content-Type': 'application/json'

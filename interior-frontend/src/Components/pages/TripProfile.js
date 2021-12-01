@@ -6,6 +6,7 @@ import EditTrip from '../EditTrip.js';
 
 
 function TripProfile() {
+    const apiURL = 'https://interiornps.herokuapp.com/'
     const params = useParams()
     let id = parseInt(params.id)
     const currentUser = useSelector(state => state.users.currentUser)
@@ -30,7 +31,7 @@ function TripProfile() {
             id: tripProfile.id,
             likes: (tripProfile.likes + 1)
         }
-            fetch(`http://localhost:3000/likes`, {
+            fetch(`${apiURL}likes`, {
                 method: "PATCH",
                 headers: {
                 'Content-Type': 'application/json'

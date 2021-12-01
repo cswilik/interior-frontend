@@ -6,6 +6,7 @@ import {  Modal } from 'semantic-ui-react'
 
 
 function EditTrip({trip}) {
+    const apiURL = 'https://interiornps.herokuapp.com/'
     const [isLoading, setIsLoading] = useState(true)
     const [open, setOpen] = useState(false)
     const [length, setLength] = useState(trip.length_of_trip)
@@ -43,7 +44,7 @@ function EditTrip({trip}) {
         form.append("what_to_pack", updatedTrip.what_to_pack)
         form.append("review", updatedTrip.review)
         form.append("img_url", updatedTrip.img_url)
-        fetch(`http://localhost:3000/trips/${trip.id}}`, {
+        fetch(`${apiURL}trips/${trip.id}`, {
             method: 'PATCH',
             
             body: form

@@ -12,6 +12,7 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 
 function ParkPage() {
+    const apiURL = 'https://interiornps.herokuapp.com/'
     const dispatch = useDispatch()
     const params = useParams()
     let id = parseInt(params.id)
@@ -32,7 +33,7 @@ function ParkPage() {
 
     useEffect(() => {
         const token = localStorage.getItem("token")
-        fetch("http://localhost:3000/dashboard", {
+        fetch(`${apiURL}dashboard`, {
             method: 'GET',
             headers: {
                 "Authorization": `Bearer ${token}`
@@ -44,7 +45,7 @@ function ParkPage() {
 
 
    useEffect(() => {
-    fetch('http://localhost:3000/parks')
+    fetch(`${apiURL}parks`)
     .then(r => r.json())
     .then(parksArr => {
         dispatch(addParks(parksArr))

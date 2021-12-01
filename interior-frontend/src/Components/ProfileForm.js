@@ -11,6 +11,7 @@ function ProfileForm() {
     const [name, setUserName] = useState(currentUser.name)
     const [bio, setUserBio] = useState(currentUser.bio)
     const [favPark, setFavPark] = useState(currentUser.fav_park)
+    const apiURL = 'https://interiornps.herokuapp.com/'
 
     const profileData = {
         id: currentUser.id,
@@ -23,7 +24,7 @@ function ProfileForm() {
    function handleSubmit(evt) {
         const token = localStorage.getItem("token")
        evt.preventDefault()
-        fetch(`http://localhost:3000/users/${currentUser.id}`, {
+        fetch(`${apiURL}users/${currentUser.id}`, {
             method: "PATCH", 
             headers: {
                 'Content-Type': 'application/json',

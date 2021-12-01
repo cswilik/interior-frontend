@@ -5,6 +5,7 @@ import {useHistory, Link} from 'react-router-dom'
 
 
 function Login() {
+    const apiURL = 'https://interiornps.herokuapp.com/'
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
@@ -19,7 +20,7 @@ function Login() {
 
     function login(e) {
         e.preventDefault()
-        fetch('http://localhost:3000/login', {
+        fetch(`${apiURL}login`, {
             method: "POST", 
             headers: {
                 'Content-Type': 'application/json'

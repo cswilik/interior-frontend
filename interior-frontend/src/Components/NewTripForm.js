@@ -16,6 +16,7 @@ function NewTripForm({park}) {
     const currentUser = useSelector(state => state.users.currentUser)
     const dispatch = useDispatch()
     let history = useHistory()
+    const apiURL = 'https://interiornps.herokuapp.com/'
 
     
     const newTripData = {
@@ -49,7 +50,7 @@ function NewTripForm({park}) {
         form.append("likes", newTripData.likes)
         form.append("img_url", newTripData.img_url)
         // form.append("api_key", "352974619581476");
-        fetch('http://localhost:3000/trips', {
+        fetch(`${apiURL}trips`, {
             method: 'POST',
             // headers: {
             //     'Content-Type': 'application/json',

@@ -19,11 +19,12 @@ import Signup from './Signup'
 
 
 function App() {
+  const apiURL = 'https://interiornps.herokuapp.com/'
   const dispatch = useDispatch()
   
 
   useEffect(() => {
-    fetch('http://localhost:3000/users')
+    fetch(`${apiURL}/users`)
       .then(resp => resp.json())
       .then(data => {
         dispatch(addUsers(data))
@@ -33,7 +34,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/trips')
+    fetch(`${apiURL}/trips`)
       .then(resp => resp.json())
       .then(data => {
         dispatch(allTrips(data))
@@ -41,7 +42,7 @@ function App() {
   }, [dispatch])
 
   useEffect(()=> {
-    fetch('http://localhost:3000/parks')
+    fetch(`${apiURL}/parks`)
     .then(r => r.json())
     .then(parksArr => {
         dispatch(addParks(parksArr))

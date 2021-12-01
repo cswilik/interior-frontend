@@ -31,7 +31,6 @@ function App() {
       })
   }, [dispatch])
 
-  console.log()
 
   useEffect(() => {
     fetch('http://localhost:3000/trips')
@@ -48,6 +47,7 @@ function App() {
         dispatch(addParks(parksArr))
     })
 }, [dispatch])
+
   return (
     <div className="App">
       <NavBar/>

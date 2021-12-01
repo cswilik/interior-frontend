@@ -6,7 +6,6 @@ import EditTrip from '../EditTrip.js';
 
 
 function TripProfile() {
-    
     const params = useParams()
     let id = parseInt(params.id)
     const currentUser = useSelector(state => state.users.currentUser)

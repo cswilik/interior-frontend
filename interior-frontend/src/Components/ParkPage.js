@@ -81,7 +81,8 @@ function ParkPage() {
                     
                         
                         About this park:<Header sub>{park.location}</Header>
-                        <div className='map-div'>
+                        {/* I don't have the Google account trial any longer */}
+                        {/* <div className='map-div'>
                         <Map google={window.google} zoom={9}
                             center={{
                                 lat: park.lat,
@@ -91,7 +92,7 @@ function ParkPage() {
                               >
                                   <Marker position={{lat: park.lat, lng: park.long}}/>
                         </Map>
-                        </div>
+                        </div> */}
                         <br></br>
                         </Header >
                             

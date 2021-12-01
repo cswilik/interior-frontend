@@ -61,8 +61,8 @@ function UserProfile() {
               <h3 className="badges-info">Badges:</h3>
             </div>
               <div className="badges-div">
-              {(parks.length <= 9) ? (<div className="no-badges-div"><h4><i>***Visit more parks to earn badges***</i></h4></div>) : (null)}
-              {(parks.length >= 10) ? (<div className="img-badge-div"><img className="junior-badge-img" src={Image} alt="junior badge"/>
+              {(parks.length <= 2) ? (<div className="no-badges-div"><h4><i>***Visit more parks to earn badges***</i></h4></div>) : (null)}
+              {(parks.length >= 3) ? (<div className="img-badge-div"><img className="junior-badge-img" src={Image} alt="junior badge"/>
               <p>You've visited 10 parks! You earned a junior ranger badge!</p></div>) : null}
               {(parks.length >= 30) ? (<div className="img-badge-div"><img className="park-badge-img" src={ImageTwo} alt="park ranger badge"/>
               <p>Wow, you visited 30 parks! You earned a park ranger badge!</p></div>) : null}
